@@ -1,0 +1,204 @@
+<!-- index.html (Página de Cadastro) -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>TVVALENAREDE - Cadastro</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        input, textarea {
+            width: 100%;
+            margin-bottom: 10px;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-top: 10px;
+        }
+        .social-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TVVALENAREDE - Cadastro de Clientes</h2>
+        
+        <form id="clientForm">
+            <input type="text" id="nome" placeholder="Nome completo do cliente" required>
+            <input type="text" id="cpf" placeholder="CPF (somente números)" required pattern="\d{11}">
+            
+            <div class="social-container">
+                <input type="text" id="whatsapp" placeholder="WhatsApp (com DDD)">
+                <input type="text" id="facebook" placeholder="Facebook (@username)">
+                <input type="text" id="instagram" placeholder="Instagram (@username)">
+                <input type="text" id="tiktok" placeholder="TikTok (@username)">
+            </div>
+
+            <input type="text" id="loja" placeholder="Nome oficial da loja" required>
+            <input type="text" id="endereco" placeholder="Endereço completo">
+            <textarea id="observacoes" placeholder="Observações adicionais" rows="3"></textarea>
+            
+            <button type="submit">Cadastrar Cliente</button>
+            <button type="button" onclick="window.location.href='clientes.html'">Ver Clientes Cadastrados</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('clientForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
+            const maxClientes = 100;
+
+            if(clientes.length >= maxClientes) {
+                alert('Limite de 100 clientes atingido!');
+                return;
+            }
+
+            const novoCliente = {
+                nome: document.getElementById('nome').value,
+                cpf: document.getElementById('cpf').value,
+                loja: document.getElementById('loja').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                facebook: document.getElementById('facebook').value,
+                instagram: document.getElementById('instagram').value,
+                tiktok: document.getElementById('tiktok').value,
+                endereco: document.getElementById('endereco').value,
+                observacoes: document.getElementById('observacoes').value
+            };
+
+            clientes.push(novoCliente);
+            localStorage.setItem('clientes', JSON.stringify(clientes));
+            
+            this.reset();
+            alert('Cliente cadastrado com sucesso!');
+        });
+    </script>
+</body>
+</html>
+Run HTML
+html
+Copy
+<!-- clientes.html (Página de Consulta) -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>TVVALENAREDE - Clientes Cadastrados</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .search-container {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 300px;
+            padding: 8px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .cliente-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>TVVALENAREDE - Clientes Cadastrados</h2>
+        
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar por nome...">
+            <button onclick="buscarClientes()">Buscar</button>
+            <button onclick="ordenarClientes()">Ordenar Alfabeticamente</button>
+            <button onclick="window.location.href='index.html'">Voltar</button>
+        </div>
+
+        <div id="clientList"></div>
+    </div>
+
+    <script>
+        function carregarClientes() {
+            return JSON.parse(localStorage.getItem('clientes')) || [];
+        }
+
+        function exibirClientes(clientes) {
+            const listDiv = document.getElementById('clientList');
+            listDiv.innerHTML = '';
+
+            clientes.forEach(cliente => {
+                const card = document.createElement('div');
+                card.className = 'cliente-card';
+                card.innerHTML = `
+                    <h4>${cliente.nome}</h4>
+                    <p><strong>CPF:</strong> ${cliente.cpf}</p>
+                    <p><strong>Loja:</strong> ${cliente.loja}</p>
+                    ${cliente.whatsapp ? `<p><strong>WhatsApp:</strong> ${cliente.whatsapp}</p>` : ''}
+                    ${cliente.endereco ? `<p><strong>Endereço:</strong> ${cliente.endereco}</p>` : ''}
+                    <div class="redes-sociais">
+                        ${cliente.facebook ? `<p><strong>Facebook:</strong> ${cliente.facebook}</p>` : ''}
+                        ${cliente.instagram ? `<p><strong>Instagram:</strong> ${cliente.instagram}</p>` : ''}
+                        ${cliente.tiktok ? `<p><strong>TikTok:</strong> ${cliente.tiktok}</p>` : ''}
+                    </div>
+                    ${cliente.observacoes ? `<p><strong>Observações:</strong> ${cliente.observacoes}</p>` : ''}
+                `;
+                listDiv.appendChild(card);
+            });
+        }
+
+        function buscarClientes() {
+            const termo = document.getElementById('searchInput').value.toLowerCase();
+            const clientes = carregarClientes();
+            const resultados = clientes.filter(cliente => 
+                cliente.nome.toLowerCase().includes(termo)
+            );
+            exibirClientes(resultados);
+        }
+
+        function ordenarClientes() {
+            const clientes = carregarClientes();
+            clientes.sort((a, b) => a.nome.localeCompare(b.nome));
+            exibirClientes(clientes);
+        }
+
+        // Carrega todos os clientes ao abrir a página
+        exibirClientes(carregarClientes());
+    </script>
+</body>
+</html>

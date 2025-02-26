@@ -1,204 +1,158 @@
-<!-- index.html (Página de Cadastro) -->
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>TVVALENAREDE - Cadastro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TVVALENAREDE REDE SOCIAL 2025</title>
     <style>
         body {
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 0, 255, 0.5)),
+                        url('https://example.com/bandeira-brasil.jpg');
+            background-size: cover;
             font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
+        }
+
+        header {
+            text-align: center;
             padding: 20px;
-        }
-        .container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        input, textarea {
-            width: 100%;
-            margin-bottom: 10px;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-right: 5px;
-            margin-top: 10px;
-        }
-        .social-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h2>TVVALENAREDE - Cadastro de Clientes</h2>
-        
-        <form id="clientForm">
-            <input type="text" id="nome" placeholder="Nome completo do cliente" required>
-            <input type="text" id="cpf" placeholder="CPF (somente números)" required pattern="\d{11}">
-            
-            <div class="social-container">
-                <input type="text" id="whatsapp" placeholder="WhatsApp (com DDD)">
-                <input type="text" id="facebook" placeholder="Facebook (@username)">
-                <input type="text" id="instagram" placeholder="Instagram (@username)">
-                <input type="text" id="tiktok" placeholder="TikTok (@username)">
-            </div>
-
-            <input type="text" id="loja" placeholder="Nome oficial da loja" required>
-            <input type="text" id="endereco" placeholder="Endereço completo">
-            <textarea id="observacoes" placeholder="Observações adicionais" rows="3"></textarea>
-            
-            <button type="submit">Cadastrar Cliente</button>
-            <button type="button" onclick="window.location.href='clientes.html'">Ver Clientes Cadastrados</button>
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('clientForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const clientes = JSON.parse(localStorage.getItem('clientes')) || [];
-            const maxClientes = 100;
-
-            if(clientes.length >= maxClientes) {
-                alert('Limite de 100 clientes atingido!');
-                return;
-            }
-
-            const novoCliente = {
-                nome: document.getElementById('nome').value,
-                cpf: document.getElementById('cpf').value,
-                loja: document.getElementById('loja').value,
-                whatsapp: document.getElementById('whatsapp').value,
-                facebook: document.getElementById('facebook').value,
-                instagram: document.getElementById('instagram').value,
-                tiktok: document.getElementById('tiktok').value,
-                endereco: document.getElementById('endereco').value,
-                observacoes: document.getElementById('observacoes').value
-            };
-
-            clientes.push(novoCliente);
-            localStorage.setItem('clientes', JSON.stringify(clientes));
-            
-            this.reset();
-            alert('Cliente cadastrado com sucesso!');
-        });
-    </script>
-</body>
-</html>
-Run HTML
-html
-Copy
-<!-- clientes.html (Página de Consulta) -->
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>TVVALENAREDE - Clientes Cadastrados</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-        .container {
-            border: 1px solid #ccc;
-            padding: 20px;
-            border-radius: 5px;
-        }
-        .search-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
             margin-bottom: 20px;
         }
-        input[type="text"] {
-            width: 300px;
-            padding: 8px;
+
+        .main-title {
+            color: #009c3b;
+            font-size: 2.5em;
+            text-shadow: 2px 2px #002776;
         }
-        button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-left: 10px;
+
+        .container {
+            display: flex;
+            gap: 20px;
         }
-        .cliente-card {
-            border: 1px solid #ddd;
+
+        .main-content {
+            flex: 3;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .side-buttons {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .side-button {
             padding: 15px;
-            margin-bottom: 10px;
+            background-color: #FFDF00;
+            border: 2px solid #009C3B;
             border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .registration-box {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .chat-box {
+            height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #009C3B;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
+    <header>
+        <h1 class="main-title">TVVALENAREDE REDE SOCIAL 2025</h1>
+    </header>
+
     <div class="container">
-        <h2>TVVALENAREDE - Clientes Cadastrados</h2>
-        
-        <div class="search-container">
-            <input type="text" id="searchInput" placeholder="Buscar por nome...">
-            <button onclick="buscarClientes()">Buscar</button>
-            <button onclick="ordenarClientes()">Ordenar Alfabeticamente</button>
-            <button onclick="window.location.href='index.html'">Voltar</button>
+        <div class="main-content">
+            <div class="registration-box">
+                <h2>Cadastro (Limite: 50 pessoas)</h2>
+                <form id="registrationForm">
+                    <input type="text" placeholder="Nome" required>
+                    <input type="email" placeholder="E-mail" required>
+                    <input type="password" placeholder="Senha" required>
+                    <input type="file" accept="image/*">
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+
+            <div>
+                <button>Achar Fotos</button>
+                <button>Achar Comentários</button>
+            </div>
+
+            <h3>Chat</h3>
+            <div class="chat-box" id="chatBox"></div>
+            <input type="text" placeholder="Digite sua mensagem" id="messageInput">
+            <button onclick="sendMessage()">Enviar</button>
         </div>
 
-        <div id="clientList"></div>
+        <div class="side-buttons">
+            <button class="side-button">1 MADE CENTER</button>
+            <button class="side-button">2 J.E.C.S</button>
+            <button class="side-button">3 BAR DO OSMAR</button>
+            <button class="side-button">4 SERGUIS ALIANÇAS</button>
+            <button class="side-button">5 SERGINHOS PNEUS</button>
+            <button class="side-button">6 CASA 3 IRMÃOS</button>
+            <button class="side-button">7 CASA DO NORDESTINO</button>
+            <button class="side-button">8 FUTEBOL AO VIVO</button>
+            <button class="side-button">9 ARQUIVO TVVALENAREDE</button>
+            <button class="side-button">10 VÍDEOS REELS</button>
+            <button class="side-button">11 FACEBOOK</button>
+            <button class="side-button">12 INSTAGRAM</button>
+            <button class="side-button">13 WHATSAPP</button>
+            <button class="side-button">14 YOUTUBE</button>
+        </div>
     </div>
 
     <script>
-        function carregarClientes() {
-            return JSON.parse(localStorage.getItem('clientes')) || [];
-        }
-
-        function exibirClientes(clientes) {
-            const listDiv = document.getElementById('clientList');
-            listDiv.innerHTML = '';
-
-            clientes.forEach(cliente => {
-                const card = document.createElement('div');
-                card.className = 'cliente-card';
-                card.innerHTML = `
-                    <h4>${cliente.nome}</h4>
-                    <p><strong>CPF:</strong> ${cliente.cpf}</p>
-                    <p><strong>Loja:</strong> ${cliente.loja}</p>
-                    ${cliente.whatsapp ? `<p><strong>WhatsApp:</strong> ${cliente.whatsapp}</p>` : ''}
-                    ${cliente.endereco ? `<p><strong>Endereço:</strong> ${cliente.endereco}</p>` : ''}
-                    <div class="redes-sociais">
-                        ${cliente.facebook ? `<p><strong>Facebook:</strong> ${cliente.facebook}</p>` : ''}
-                        ${cliente.instagram ? `<p><strong>Instagram:</strong> ${cliente.instagram}</p>` : ''}
-                        ${cliente.tiktok ? `<p><strong>TikTok:</strong> ${cliente.tiktok}</p>` : ''}
-                    </div>
-                    ${cliente.observacoes ? `<p><strong>Observações:</strong> ${cliente.observacoes}</p>` : ''}
-                `;
-                listDiv.appendChild(card);
+        let users = [];
+        
+        document.getElementById('registrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(users.length >= 50) {
+                alert('Limite de cadastros atingido!');
+                return;
+            }
+            // Adicionar lógica de cadastro aqui
+            users.push({
+                name: this[0].value,
+                email: this[1].value,
+                password: this[2].value
             });
-        }
+            alert('Cadastro realizado com sucesso!');
+            this.reset();
+        });
 
-        function buscarClientes() {
-            const termo = document.getElementById('searchInput').value.toLowerCase();
-            const clientes = carregarClientes();
-            const resultados = clientes.filter(cliente => 
-                cliente.nome.toLowerCase().includes(termo)
-            );
-            exibirClientes(resultados);
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const chatBox = document.getElementById('chatBox');
+            chatBox.innerHTML += `<p>${input.value}</p>`;
+            input.value = '';
         }
-
-        function ordenarClientes() {
-            const clientes = carregarClientes();
-            clientes.sort((a, b) => a.nome.localeCompare(b.nome));
-            exibirClientes(clientes);
-        }
-
-        // Carrega todos os clientes ao abrir a página
-        exibirClientes(carregarClientes());
     </script>
 </body>
 </html>

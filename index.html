@@ -1,265 +1,134 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVVALENAREDE - Rede Social 2025</title>
+    <title>TVVALENAREDE - Contato</title>
     <style>
         body {
+            background-color: #FFA500; /* Fundo laranja */
             margin: 0;
             padding: 20px;
-            background-color: #FFA500;
             font-family: Arial, sans-serif;
         }
 
-        .header {
-            text-align: center;
-            color: #000;
-            font-size: 2.5em;
-            text-shadow: 2px 2px 4px white;
-            margin-bottom: 20px;
-            padding: 20px;
-            background-color: rgba(255,255,255,0.3);
-            border-radius: 15px;
-        }
-
-        .container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .main-content {
-            flex: 2;
-            min-width: 300px;
-        }
-
-        .sidebar {
-            flex: 1;
-            background-color: rgba(0,0,0,0.8);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 250px;
-        }
-
-        .profile-section {
+        .rede-social {
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border: 3px solid black;
-            border-radius: 50%;
-            margin: 0 auto 20px;
-            background-color: white;
-            overflow: hidden;
-            cursor: pointer;
+        .titulo-rede {
+            font-size: 2.5em;
+            color: #000;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.5);
+            margin: 20px 0;
         }
 
-        .botao-menu {
-            width: 100%;
-            padding: 12px;
-            margin: 8px 0;
-            background-color: #000;
+        .botoes-rede {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .botao-social {
+            padding: 15px;
+            background-color: #FF8C00;
             color: white;
-            border: none;
+            text-decoration: none;
             border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.9em;
-            transition: transform 0.2s;
+            font-weight: bold;
+            transition: transform 0.3s;
         }
 
-        .botao-menu:hover {
-            transform: scale(1.02);
+        .botao-social:hover {
+            transform: scale(1.05);
+            background-color: #FF6B00;
         }
 
-        .registration-form {
-            background-color: rgba(255,255,255,0.9);
+        form {
+            background-color: rgba(255, 255, 255, 0.9);
             padding: 20px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            max-width: 500px;
+            margin: 30px auto;
         }
 
-        .chat-box {
-            background-color: white;
-            padding: 20px;
-            border-radius: 15px;
-            height: 300px;
-            margin-bottom: 20px;
-        }
-
-        input[type="text"], 
-        input[type="email"], 
-        input[type="password"] {
+        label, input, textarea {
+            display: block;
             width: 100%;
-            padding: 10px;
-            margin: 8px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin-bottom: 15px;
         }
 
-        button {
-            padding: 10px 20px;
-            margin: 5px;
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-            }
-            .sidebar {
-                order: -1;
-                margin-bottom: 20px;
-            }
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
+            width: 100%;
+            font-size: 1.1em;
         }
     </style>
 </head>
 <body>
-    <h1 class="header">TVVALENAREDE REDE SOCIAL 2025</h1>
-    
-    <div class="container">
-        <div class="main-content">
-            <div class="profile-section">
-                <div class="profile-photo">
-                    <input type="file" id="fotoPerfil" accept="image/*" style="display: none;">
-                    <label for="fotoPerfil">
-                        <img src="placeholder.jpg" alt="Foto de Perfil" style="width: 100%; height: 100%; object-fit: cover;">
-                    </label>
-                </div>
-                <button onclick="procurarFotos()">Achar Fotos</button>
-                <button onclick="procurarComentarios()">Achar Comentários</button>
-            </div>
-
-            <div class="registration-form">
-                <h2>Cadastro (50 Vagas)</h2>
-                <input type="text" id="nome" placeholder="Nome Completo">
-                <input type="email" id="email" placeholder="E-mail">
-                <input type="password" id="senha" placeholder="Senha">
-                <button id="btnCadastrar" style="background-color: #000; color: white; width: 100%; margin-top: 10px;">
-                    Cadastrar
-                </button>
-                <div id="contadorStatus" style="color: #ff0000; margin-top: 10px;"></div>
-            </div>
-
-            <div class="chat-box">
-                <h2>Chat</h2>
-                <div id="mensagens" style="height: 200px; overflow-y: auto; margin-bottom: 10px;"></div>
-                <input type="text" id="mensagem" placeholder="Digite sua mensagem" style="width: 70%; padding: 8px;">
-                <button onclick="enviarMensagem()" style="background-color: #000; color: white;">Enviar</button>
-            </div>
-        </div>
-
-        <div class="sidebar">
-            <button class="botao-menu">1 MADE CENTER</button>
-            <button class="botao-menu">2 J.E.C.S</button>
-            <button class="botao-menu">3 BAR DO OSMAR</button>
-            <button class="botao-menu">4 SERGIUS ALIANÇAS</button>
-            <button class="botao-menu">5 SERGINHOS PNEUS</button>
-            <button class="botao-menu">6 CASA 3 IRMÃOS</button>
-            <button class="botao-menu">7 CASA DO NORDESTINO</button>
-            <button class="botao-menu">8 FUTEBOL AO VIVO</button>
-            <button class="botao-menu">9 ARQUIVO TVVALENAREDE</button>
-            <button class="botao-menu">10 VÍDEOS REELS</button>
-            <button class="botao-menu">11 FACEBOOK</button>
-            <button class="botao-menu">12 INSTAGRAM</button>
-            <button class="botao-menu">13 WHATSAPP</button>
-            <button class="botao-menu">14 YOUTUBE</button>
+    <div class="rede-social">
+        <h1 class="titulo-rede">REDE SOCIAL TVVALENAREDE</h1>
+        <div class="botoes-rede">
+            <a href="https://tvvalenarede0.webnode.page/?_gl=1*gzjijo*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1" class="botao-social"> ACESSE MADE CENTER</a>
+            <a href="http://www.youtube.com/tvvalenarede" class="botao-social"> ACESSE SERGIUS ALIANÇAS</a>
+            <a href="http://www.youtube.com/tvvalenarede" class="botao-social">ACESSE BAR DO OSMAR</a>
+            <a href="http://www.youtube.com/tvvalenarede" class="botao-social">ACESSE CASA IRMÃOS</a>
+            <a href="http://www.youtube.com/tvvalenarede" class="botao-social">ACESSE J.E.C.S</a>
+            <a href="http://www.youtube.com/tvvalenarede" class="botao-social">ACESSE SERGINHO PNEUS</a>
+            
+            
         </div>
     </div>
 
+    <form id="meuFormulario" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="Nome" required>
+
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="E-mail" required>
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="Mensagem" rows="5" required></textarea>
+
+        <input type="hidden" name="_subject" value="Nova submissão do site">
+        
+        <button type="submit">Enviar Mensagem</button>
+    </form>
+
     <script>
-        // Sistema de Cadastro
-        let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        const LIMITE_CADASTROS = 50;
+        document.addEventListener('DOMContentLoaded', () => {
+            const formulario = document.getElementById('meuFormulario');
 
-        function atualizarContador() {
-            const vagas = LIMITE_CADASTROS - usuarios.length;
-            document.getElementById('contadorStatus').innerHTML = 
-                `Cadastros: ${usuarios.length}/${LIMITE_CADASTROS}`;
-            
-            if(vagas <= 0) {
-                document.getElementById('btnCadastrar').disabled = true;
-            }
-        }
+            formulario.addEventListener('submit', (e) => {
+                e.preventDefault();
 
-        document.getElementById('btnCadastrar').addEventListener('click', () => {
-            if(usuarios.length >= LIMITE_CADASTROS) {
-                alert('Limite de cadastros atingido!');
-                return;
-            }
-
-            const nome = document.getElementById('nome').value;
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-
-            if(!nome || !email || !senha) {
-                alert('Preencha todos os campos!');
-                return;
-            }
-
-            if(usuarios.some(u => u.email === email)) {
-                alert('E-mail já cadastrado!');
-                return;
-            }
-
-            usuarios.push({
-                nome, email, senha,
-                dataCadastro: new Date().toISOString()
-            });
-
-            localStorage.setItem('usuarios', JSON.stringify(usuarios));
-            atualizarContador();
-            alert('Cadastro realizado!');
-            document.getElementById('nome').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('senha').value = '';
-        });
-
-        // Sistema de Chat
-        function enviarMensagem() {
-            const mensagem = document.getElementById('mensagem').value;
-            if(mensagem.trim()) {
-                const div = document.createElement('div');
-                div.textContent = mensagem;
-                document.getElementById('mensagens').appendChild(div);
-                document.getElementById('mensagem').value = '';
-                // Adicionar lógica de armazenamento de mensagens aqui
-            }
-        }
-
-        // Upload de Foto
-        document.getElementById('fotoPerfil').addEventListener('change', function(e) {
-            const file = e.target.files[0];
-            if(file) {
-                const reader = new FileReader();
-                reader.onload = function() {
-                    document.querySelector('.profile-photo img').src = reader.result;
+                // Validação do e-mail
+                const email = formulario.email.value;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('Por favor, insira um e-mail válido!');
+                    return;
                 }
-                reader.readAsDataURL(file);
-            }
+
+                // Validação da mensagem
+                if (formulario.mensagem.value.trim().length < 10) {
+                    alert('A mensagem deve ter pelo menos 10 caracteres!');
+                    return;
+                }
+
+                // Confirmação de envio
+                if (confirm('Deseja realmente enviar a mensagem?')) {
+                    formulario.submit();
+                    alert('Mensagem enviada com sucesso!');
+                    formulario.reset();
+                }
+            });
         });
-
-        // Funções de busca
-        function procurarFotos() {
-            alert('Funcionalidade de busca de fotos em desenvolvimento!');
-        }
-
-        function procurarComentarios() {
-            alert('Funcionalidade de busca de comentários em desenvolvimento!');
-        }
-
-        // Inicialização
-        atualizarContador();
     </script>
 </body>
 </html>

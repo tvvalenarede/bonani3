@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <link rel="manifest" href="manifest.json">
@@ -89,6 +88,17 @@
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             background: var(--secondary);
+        }
+
+        /* Estilo especial para o primeiro botão */
+        .nav-button.agua-quente {
+            background: #FF0000; /* Vermelho */
+            color: #FFFF00; /* Amarelo */
+        }
+
+        .nav-button.agua-quente:hover {
+            background: #CC0000; /* Vermelho mais escuro no hover */
+            color: #FFFF00; /* Mantém amarelo no hover */
         }
 
         .main-content {
@@ -219,7 +229,7 @@
     <div class="grid-container">
         <!-- Sidebar Esquerda -->
         <div class="sidebar">
-            <a href="https://www.facebook.com/TVRBRAZIL" class="nav-button"> ÁGUA QUENTE X IPANEMA AO VIVO DOMINGO AS 10:30 HS</a>
+            <a href="https://www.facebook.com/TVRBRAZIL" class="nav-button agua-quente"> ÁGUA QUENTE X IPANEMA AO VIVO DOMINGO AS 10:30 HS</a>
             
             <a href="https://www.youtube.com/@tvvalenarede" class="nav-button">TVVALENAREDE YOUTUBE</a>
             <a href="https://tvvalenarede.github.io/jogos/" class="nav-button">Shekinah Energéticos</a>
@@ -292,3 +302,4 @@
         });
     </script>
 </body>
+</html>

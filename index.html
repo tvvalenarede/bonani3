@@ -1,615 +1,902 @@
 
 
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVVALENAREDE & FACEBOOK</title>
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#2A3B47">
-    <link rel="apple-touch-icon" href="logocerto.png">
-    <link rel="icon" type="image/png" href="logocerto.png">
-    <link rel="icon" type="image/png" href="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png">
-    <link rel="shortcut icon" href="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" type="image/png">
-    <link rel="apple-touch-icon" href="logocerto.png">
-    <link rel="icon" type="image/png" href="logocerto.png">
-    <link rel="icon" href="logo192.png" type="image/png">
-    <link rel="apple-touch-icon" href="logo192.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="manifest" href="manifest.json">
-    
+    <title>Perfumaria da Rita | Perfumes Franceses de Luxo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2A3B47;
-            --secondary: #B38E5D;
-            --accent: #FF6B00;
-            --orange: #FF8C00;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #8a6d62;
+            --secondary: #d4c1b0;
+            --accent: #c69f89;
+            --dark: #4a3f35;
+            --light: #f8f4f0;
+            --text: #333333;
         }
 
         body {
-            background: #f9f9f9;
-            line-height: 1.6;
+            background-color: var(--light);
+            color: var(--text);
+            overflow-x: hidden;
         }
 
-        .main-header {
-            background: var(--primary);
-            color: white;
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(74, 63, 53, 0.7), rgba(74, 63, 53, 0.9)), url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 2rem 1rem;
-            border-bottom: 3px solid var(--secondary);
+            position: relative;
+            color: white;
+            padding: 20px;
         }
 
-        .main-header h1 {
-            font-size: 2.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: 300;
+            letter-spacing: 5px;
         }
 
-        /* NOVA SEÇÃO PARA OS BOTÕES */
-        .top-buttons-container {
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            font-size: 1.3rem;
+            color: var(--dark);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            padding: 1.5rem;
-            background: linear-gradient(135deg, #2A3B47 0%, #1a2530 100%);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        .top-button {
-            padding: 1rem 1.5rem;
-            background: linear-gradient(to bottom, #FF8C00, #FF6B00);
-            color: white;
-            border: none;
-            border-radius: 50px;
+            align-items: center;
+            font-size: 0.7rem;
             font-weight: bold;
-            text-transform: uppercase;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            min-width: 200px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
         }
 
-        .top-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.3);
-            background: linear-gradient(to bottom, #FF9E30, #FF7F20);
-        }
-
-        .top-button:active {
-            transform: translateY(0);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-
-        .top-button.perfumaria {
-            background: linear-gradient(to bottom, #FF6B9C, #D8436E);
-        }
-        
-        .top-button.perfumaria:hover {
-            background: linear-gradient(to bottom, #FF80AA, #E05C85);
-        }
-
-        .top-button.advogados {
-            background: linear-gradient(to bottom, #4A90E2, #2A5CAA);
-        }
-        
-        .top-button.advogados:hover {
-            background: linear-gradient(to bottom, #5CA0F0, #3A6CC0);
-        }
-
-        .top-button.casa-irmaos {
-            background: linear-gradient(to bottom, #34C759, #2AA44F);
-        }
-        
-        .top-button.casa-irmaos:hover {
-            background: linear-gradient(to bottom, #44D769, #3AB45F);
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: 1fr 3fr 1fr;
-            gap: 2rem;
-            padding: 2rem;
-            max-width: 1400px;
+        /* Sections */
+        section {
+            padding: 80px 20px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
-        .sidebar {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .nav-button {
-            display: block;
-            width: 100%;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            background: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .section-title {
             text-align: center;
+            margin-bottom: 50px;
+            color: var(--dark);
+            position: relative;
         }
 
-        .nav-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            background: var(--secondary);
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
         }
 
-        /* Estilo especial para o primeiro botão */
-        .nav-button.agua-quente {
-            background: #FF0000; /* Vermelho */
-            color: #FFFF00; /* Amarelo */
-        }
-
-        .nav-button.agua-quente:hover {
-            background: #CC0000; /* Vermelho mais escuro no hover */
-            color: #FFFF00; /* Mantém amarelo no hover */
-        }
-
-        .main-content {
-            background: white;
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .social-grid {
+        /* Products Section */
+        .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
         }
 
-        .social-card {
-            background: var(--primary);
-            color: white;
-            padding: 1.5rem;
+        .product-card {
+            background: white;
             border-radius: 10px;
-            text-align: center;
-            transition: transform 0.3s;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .social-card:hover {
-            transform: scale(1.05);
-            background: var(--secondary);
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .contact-form {
-            background: var(--primary);
-            padding: 2rem;
-            border-radius: 10px;
-            color: white;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
+        .product-img {
+            height: 280px;
             width: 100%;
-            padding: 0.8rem;
-            margin: 0.5rem 0;
-            border: 2px solid var(--secondary);
-            border-radius: 5px;
-            background: rgba(255,255,255,0.9);
+            background-size: cover;
+            background-position: center;
         }
 
-        .contact-form button {
-            background: var(--secondary);
-            color: white;
-            padding: 1rem 2rem;
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-name {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .product-brand {
+            font-size: 0.9rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 10px 20px;
             border: none;
             border-radius: 5px;
-            width: 100%;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .contact-form button:hover {
-            background: var(--accent);
-        }
-
-        .fixed-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--accent);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-            z-index: 1000;
-        }
-
-        .fixed-button-left {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: var(--orange);
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 30px;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-            z-index: 1000;
-        }
-
-        .fixed-button:hover,
-        .fixed-button-left:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.1);
-        }
-
-        /* NOVOS ESTILOS PARA A SEÇÃO DE NOTÍCIAS */
-        .news-section {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-        
-        .news-title {
-            text-align: center;
-            font-size: 3rem;
-            margin: 2rem 0;
-            color: var(--primary);
+            font-weight: 500;
+            transition: all 0.3s;
             text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
         }
-        
-        .news-container {
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Gallery Section */
+        .gallery-container {
             display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
         }
-        
-        .videos-container {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
+
+        .gallery-item {
+            height: 300px;
+            border-radius: 10px;
             overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
-        
-        .video-wrapper iframe {
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            border-radius: 8px;
-        }
-        
-        .news-column {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .news-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .news-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .news-item h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .news-item p {
-            color: #555;
-            font-size: 0.95rem;
-        }
-        
-        .news-item time {
-            display: block;
-            color: #888;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
-        }
-        
-        .news-category {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .programming-column {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        .programming-item {
+            background: rgba(138, 109, 98, 0.7);
             display: flex;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid #eee;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        
-        .programming-time {
-            font-weight: bold;
-            color: var(--primary);
-            margin-right: 1rem;
-            min-width: 60px;
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
         }
-        
-        .programming-title {
-            color: #333;
+
+        .overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+
+        /* Forms */
+        .form-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .contact-card p {
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #25D366;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 20px 20px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+
+        .footer-column p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: var(--secondary);
+        }
+
+        /* Responsive Design */
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
         }
 
         @media (max-width: 768px) {
-            .grid-container {
-                grid-template-columns: 1fr;
-                padding: 1rem;
-            }
-
-            .sidebar {
-                order: -1;
-            }
-
-            .main-header h1 {
-                font-size: 1.8rem;
-            }
-
-            .fixed-button,
-            .fixed-button-left {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-                bottom: 10px;
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
-            /* Responsivo para seção de notícias */
-            .news-container {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1.1rem;
             }
             
-            .videos-container {
-                grid-template-columns: 1fr;
+            .menu-toggle {
+                display: block;
             }
             
-            .news-title {
-                font-size: 2rem;
-            }
-            
-            /* Responsivo para botões superiores */
-            .top-buttons-container {
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
                 flex-direction: column;
                 align-items: center;
-                padding: 1rem;
+                padding: 20px 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: clip-path 0.4s ease;
             }
             
-            .top-button {
-                width: 90%;
-                margin-bottom: 0.5rem;
+            .nav-links.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Cabeçalho com o logo e título -->
-    <header class="main-header">
-        <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo">
-        <h1>TVVALENAREDE & FACEBOOK</h1>
-    </header>
-    
-    <!-- NOVA SEÇÃO DE BOTÕES SUPERIORES -->
-    <div class="top-buttons-container">
-        <a href="https://tvvalenarede.github.io/bonani2/" class="top-button perfumaria">Perfumaria da Rita</a>
-        <a href="https://tvvalenarede.webnode.page/?_gl=1*1p8g9b5*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg./" class="top-button advogados">J.E.C.S Advogados</a>
-        <a href="https://casa3-irmaos.webnode.page/" class="top-button casa-irmaos">Casa 3 Irmãos</a>
-    </div>
-
-    <div class="grid-container">
-        <!-- Sidebar Esquerda -->
-        <div class="sidebar">
-            <a href="https://tvvalenarede.github.io/redesocial1/" class="nav-button agua-quente">  SITE DO MAICON JOGADOR</a>
-            
-            <a href="https://www.facebook.com/TVRBRAZIL" class="nav-button agua-quente" class="nav-button">TVVALENAREDE AO VIVO</a>
-            <a href="https://tvvalenarede.github.io/jogos/" class="nav-button">Shekinah Energéticos</a>
-            <a href="https://casa3-irmaos.webnode.page" class="nav-button">CASA 3 IRMÃOS</a>
-            <a href="https://www.youtube.com/watch?v=z2j0Yzf8Myk&t=34s" class="nav-button">PREMIAÇÃO ACEESP</a>
-        </div>
-
-        <!-- Conteúdo Principal -->
-        <div class="main-content">
-            <div class="social-grid">
-                <a href="https://made-center7.webnode.page" class="social-card">FUTEBOL</a>
-                <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="social-card">TVVALENAREDE YOUTUBE LIVE</a>
-                <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="social-card">BAR DO OSMAR</a>
-                <a href="https://casa3-irmaos.webnode.page/?_gl=1*1c6qg4l*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjE1MzI2NjMxOTAuMTc0MzUzMDU1Mi4xNzQzNTMwNTUx" class="social-card">CASA 3 IRMÃOS</a>
-                <a href="https://tvvalenarede.webnode.page/?_gl=1*1p8g9b5*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg." class="social-card">ADVOGADOS ASSOCIADOS J.E.C.S</a>
-                <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="social-card">SERGINHO PNEUS</a>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo"><i class="fas fa-spa"></i> Perfumaria da Rita</a>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
             </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#produtos">Produtos</a></li>
+                <li><a href="#galeria">Galeria</a></li>
+                <li><a href="#cadastro">Cadastro</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
+            </ul>
+        </div>
+    </nav>
 
-            <form class="contact-form" id="meuFormulario" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
-                <input type="text" id="nome" name="Nome" placeholder="Nome" required>
-                <input type="email" id="email" name="E-mail" placeholder="E-mail" required>
-                <textarea id="mensagem" name="Mensagem" rows="5" placeholder="Mensagem" required></textarea>
-                <input type="hidden" name="_subject" value="Nova mensagem do site">
-                <button type="submit">ENVIAR MENSAGEM</button>
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <h1>PERFUMARIA DA RITA</h1>
+        <p>Descubra a essência da elegância com nossos exclusivos perfumes franceses. Uma experiência olfativa que transcende o tempo.</p>
+        <a href="#produtos" class="btn btn-primary">Explorar Coleção</a>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos">
+        <h2 class="section-title">Nossos Produtos</h2>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1592945403247-b9a38a7b8da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Élégance Nocturne</h3>
+                    <p class="product-brand">Paris, França</p>
+                    <div class="product-actions">
+                        <button class="btn btn-outline">Detalhes</button>
+                        <button class="btn btn-primary add-to-cart">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595425977377-6aaf05c446d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Fleur d'Été</h3>
+                    <p class="product-brand">Provence, França</p>
+                    <div class="product-actions">
+                        <button class="btn btn-outline">Detalhes</button>
+                        <button class="btn btn-primary add-to-cart">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1590732870482-9c36b0f1dab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Lumière d'Opale</h3>
+                    <p class="product-brand">Côte d'Azur, França</p>
+                    <div class="product-actions">
+                        <button class="btn btn-outline">Detalhes</button>
+                        <button class="btn btn-primary add-to-cart">Comprar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="product-info">
+                    <h3 class="product-name">Mystère Royal</h3>
+                    <p class="product-brand">Versailles, França</p>
+                    <div class="product-actions">
+                        <button class="btn btn-outline">Detalhes</button>
+                        <button class="btn btn-primary add-to-cart">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria">
+        <h2 class="section-title">Nossa Galeria</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1590732870482-9c36b0f1dab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume francês">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595425977377-6aaf05c446d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Coleção de perfumes">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1592945403247-b9a38a7b8da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Frasco de perfume">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume exclusivo">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1595425898699-5d0d86e8b9e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Loja de perfumes">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1620916297394-9b1c6b5a1e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ingredientes naturais">
+                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section id="cadastro">
+        <h2 class="section-title">Cadastre-se</h2>
+        <div class="form-container">
+            <form id="registrationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Nome</label>
+                        <input type="text" id="firstName" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Sobrenome</label>
+                        <input type="text" id="lastName" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" class="form-control" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone">Telefone</label>
+                        <input type="tel" id="phone" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthdate">Data de Nascimento</label>
+                        <input type="date" id="birthdate" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="address">Endereço</label>
+                    <input type="text" id="address" class="form-control" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="state">Estado</label>
+                        <select id="state" class="form-control" required>
+                            <option value="">Selecione...</option>
+                            <option value="SP">São Paulo</option>
+                            <option value="RJ">Rio de Janeiro</option>
+                            <option value="MG">Minas Gerais</option>
+                            <option value="ES">Espírito Santo</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="zip">CEP</label>
+                        <input type="text" id="zip" class="form-control" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="confirmPassword">Confirme sua Senha</label>
+                    <input type="password" id="confirmPassword" class="form-control" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" required> Aceito os termos e condições
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Cadastrar</button>
             </form>
         </div>
+    </section>
 
-        <!-- Sidebar Direita -->
-        <div class="sidebar">
-            <a href="https://www.facebook.com/?locale=pt_BR" class="nav-button">FACEBOOK</a>
-            <a href="https://www.facebook.com/tvvalenarede2" class="nav-button">FACEBOOK2</a>
-            <a href="https://www.instagram.com/tvvalenarede?igsh=aWF0bjdueGR5N3cw" class="nav-button">INSTAGRAM1</a>
-            <a href="https://www.instagram.com/tvvalenarede2/" class="nav-button">INSTAGRAM2</a>
-            <a href="http://youtube.com/tvvalenarede" class="nav-button">YOUTUBE</a>
-            <a href="https://www.tiktok.com/@tvvalenarede?_t=ZM-8uwnC2d12ZD&_r=1" class="nav-button">TIKTOK</a>
-        </div>
-    </div>
-
-    <!-- NOVA SEÇÃO DE NOTÍCIAS E VÍDEOS -->
-    <div class="news-section">
-        <h2 class="news-title">TVVALENAREDE NOTÍCIAS</h2>
-        
-        <!-- Container de Vídeos -->
-        <div class="videos-container">
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z2j0Yzf8Myk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <h3>PREMIAÇÃO ACEESP</h3>
+    <!-- Contact Section -->
+    <section id="contato">
+        <h2 class="section-title">Contato</h2>
+        <div class="contact-info">
+            <div class="contact-card">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Endereço</h3>
+                <p>Rua Chiquinha de Mattos, 92<br>Centro, Taubaté - SP<br>CEP: 12020-010</p>
             </div>
-            
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <h3>Últimas Notícias do Brasil</h3>
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Telefone</h3>
+                <p>(12) 99257-3744</p>
+                <a href="https://wa.me/5512992573744" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> WhatsApp
+                </a>
             </div>
-            
-            <div class="video-item">
-                <div class="video-wrapper">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <h3>Entrevistas Exclusivas</h3>
+            <div class="contact-card">
+                <i class="fas fa-clock"></i>
+                <h3>Horário de Funcionamento</h3>
+                <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 14h<br>Domingo: Fechado</p>
             </div>
         </div>
-        
-        <!-- Container de Notícias e Programação -->
-        <div class="news-container">
-            <div class="news-column">
-                <h2>Últimas Notícias</h2>
-                
-                <div class="news-item">
-                    <span class="news-category">Política</span>
-                    <h3>Novas medidas econômicas são anunciadas pelo governo</h3>
-                    <p>O ministro da economia apresentou hoje um pacote com medidas para estimular o crescimento econômico e conter a inflação.</p>
-                    <time>Há 2 horas</time>
-                </div>
-                
-                <div class="news-item">
-                    <span class="news-category">Esportes</span>
-                    <h3>Time local vence campeonato estadual</h3>
-                    <p>Com uma vitória por 3 a 1, o time da cidade conquistou o título estadual após 10 anos de espera.</p>
-                    <time>Há 5 horas</time>
-                </div>
-                
-                <div class="news-item">
-                    <span class="news-category">Cultura</span>
-                    <h3>Festival de cinema começa nesta sexta</h3>
-                    <p>A 15ª edição do festival traz produções nacionais e internacionais com entrada gratuita em diversos locais da cidade.</p>
-                    <time>Há 8 horas</time>
-                </div>
-                
-                <div class="news-item">
-                    <span class="news-category">Saúde</span>
-                    <h3>Nova unidade de saúde é inaugurada</h3>
-                    <p>O prefeito inaugurou hoje a nova UPA que vai atender mais de 50 mil pessoas na região norte da cidade.</p>
-                    <time>Ontem, 18:30</time>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Perfumaria da Rita</h3>
+                <p>Especializada em perfumes franceses de alta qualidade, trazendo elegância e sofisticação para o seu dia a dia.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-            
-            <div class="programming-column">
-                <h2>Programação TVVALENAREDE</h2>
-                
-                <div class="programming-item">
-                    <span class="programming-time"> Segunda Feira 19:30</span>
-                    <span class="programming-title">Tvvalenarede Futebol</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time">Terça Feira 19:30</span>
-                    <span class="programming-title">Tvvalenarede Criações</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time"> Quarta-Feira 19:30</span>
-                    <span class="programming-title">Tvvalenarede Notícias</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time">Quinta Feira 19:30</span>
-                    <span class="programming-title">Tvvalenarede Convidados</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time"> Sexta Feira 19:30</span>
-                    <span class="programming-title">Tvvalenarede Humor</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time"> Sábado 16:00</span>
-                    <span class="programming-title">Tvvalenarede Live</span>
-                </div>
-                
-                <div class="programming-item">
-                    <span class="programming-time"> Domingo 10:00</span>
-                    <span class="programming-title">Resumo da semana</span>
-                </div>
+            <div class="footer-column">
+                <h3>Links Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#produtos">Produtos</a></li>
+                    <li><a href="#galeria">Galeria</a></li>
+                    <li><a href="#cadastro">Cadastro</a></li>
+                    <li><a href="#contato">Contato</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Newsletter</h3>
+                <p>Inscreva-se para receber nossas novidades e promoções exclusivas.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Seu e-mail" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Inscrever-se</button>
+                </form>
             </div>
         </div>
-    </div>
-
-    <!-- Botões Fixos -->
-    <a href="https://www.youtube.com/watch?v=ll-BtWdFNUc&t=66s" class="fixed-button">PROGRAMA SHEKINAH</a>
-    <a href="https://tvvalenarede.webnode.page/?_gl=1*tgfs5g*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg." class="fixed-button-left">J.E.C.S</a>
+        <div class="copyright">
+            &copy; 2025 Perfumaria da Rita. Todos os direitos reservados para a TVVALENAREDE.
+        </div>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const formulario = document.getElementById('meuFormulario');
-
-            formulario.addEventListener('submit', (e) => {
+        // Mobile Menu Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-
-                // Validação do e-mail
-                const email = formulario.email.value;
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                    alert('Por favor, insira um e-mail válido!');
-                    return;
-                }
-
-                // Validação da mensagem
-                if (formulario.mensagem.value.trim().length < 10) {
-                    alert('A mensagem deve ter pelo menos 10 caracteres!');
-                    return;
-                }
-
-                // Confirmação de envio
-                if (confirm('Deseja realmente enviar a mensagem?')) {
-                    formulario.submit();
-                    alert('Mensagem enviada com sucesso!');
-                    formulario.reset();
-                }
+                
+                navLinks.classList.remove('active');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
             });
+        });
+        
+        // Cart Functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartCount = document.querySelector('.cart-count');
+        let count = 0;
+        
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                count++;
+                cartCount.textContent = count;
+                
+                // Animation effect
+                button.textContent = 'Adicionado!';
+                button.style.backgroundColor = '#4CAF50';
+                
+                setTimeout(() => {
+                    button.textContent = 'Comprar';
+                    button.style.backgroundColor = '';
+                }, 2000);
+            });
+        });
+        
+        // Form Submission
+        const registrationForm = document.getElementById('registrationForm');
+        
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Cadastro realizado com sucesso! Em breve você receberá novidades exclusivas.');
+            registrationForm.reset();
+        });
+        
+        // Gallery Lightbox Effect
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        
+        galleryItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const imgSrc = item.querySelector('img').src;
+                const lightbox = document.createElement('div');
+                lightbox.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0,0,0,0.9);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    z-index: 2000;
+                    cursor: pointer;
+                `;
+                
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.style.maxWidth = '90%';
+                img.style.maxHeight = '90%';
+                img.style.borderRadius = '10px';
+                
+                lightbox.appendChild(img);
+                document.body.appendChild(lightbox);
+                
+                lightbox.addEventListener('click', () => {
+                    document.body.removeChild(lightbox);
+                });
+            });
+        });
+        
+        // Sticky Navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.padding = '10px 0';
+                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                nav.style.padding = '';
+                nav.style.boxShadow = '';
+            }
         });
     </script>
 </body>

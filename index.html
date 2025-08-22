@@ -1,452 +1,547 @@
 
-
-
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfumaria da Rita | Perfumes Franceses de Luxo</title>
+    <title>TVVALENAREDE & FACEBOOK</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2A3B47">
+    <link rel="apple-touch-icon" href="logocerto.png">
+    <link rel="icon" type="image/png" href="logocerto.png">
+    <link rel="icon" type="image/png" href="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png">
+    <link rel="shortcut icon" href="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" type="image/png">
+    <link rel="apple-touch-icon" href="logocerto.png">
+    <link rel="icon" type="image/png" href="logocerto.png">
+    <link rel="icon" href="logo192.png" type="image/png">
+    <link rel="apple-touch-icon" href="logo192.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="manifest" href="manifest.json">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        :root {
+            --primary: #232f3e;
+            --secondary: #ff9900;
+            --accent: #146eb4;
+            --orange: #ff8c00;
+            --dark-bg: #131a22;
+            --light-bg: #f2f2f2;
+            --text-dark: #333;
+            --text-light: #fff;
+            --card-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            --hover-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #8a6d62;
-            --secondary: #d4c1b0;
-            --accent: #c69f89;
-            --dark: #4a3f35;
-            --light: #f8f4f0;
-            --text: #333333;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--text);
-            overflow-x: hidden;
+            background: var(--light-bg);
+            line-height: 1.6;
+            color: var(--text-dark);
         }
 
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(74, 63, 53, 0.7), rgba(74, 63, 53, 0.9)), url('https://images.unsplash.com/photo-1490730141103-6cac27aaab94?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        /* Header estilo Amazon */
+        .amazon-header {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-container h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .search-bar {
+            flex-grow: 1;
+            max-width: 600px;
+            margin: 0 2rem;
+            display: flex;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 4px 0 0 4px;
+        }
+
+        .search-bar button {
+            padding: 0.7rem 1rem;
+            background: var(--secondary);
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-left: 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
             display: flex;
             flex-direction: column;
+        }
+
+        .nav-item span:first-child {
+            font-size: 0.75rem;
+        }
+
+        .nav-item span:last-child {
+            font-weight: bold;
+        }
+
+        .cart-count {
+            background: var(--secondary);
+            color: var(--text-dark);
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            color: white;
-            padding: 20px;
+            font-size: 0.75rem;
+            position: absolute;
+            top: -8px;
+            right: -8px;
         }
 
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-            font-weight: 300;
-            letter-spacing: 5px;
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            max-width: 800px;
-            margin-bottom: 30px;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Navigation */
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            transition: all 0.3s ease;
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo i {
-            margin-right: 10px;
-            color: var(--accent);
+        /* Menu de navegação secundário */
+        .secondary-nav {
+            background: var(--primary);
+            padding: 0.5rem 1rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         .nav-links li {
-            margin-left: 30px;
+            margin-right: 1.5rem;
         }
 
         .nav-links a {
+            color: var(--text-light);
             text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 1.1rem;
-            transition: color 0.3s;
-            position: relative;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
+        .nav-links i {
+            margin-right: 5px;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .cart-icon {
-            font-size: 1.3rem;
-            color: var(--dark);
-            position: relative;
-            cursor: pointer;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: var(--accent);
-            color: white;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
+        /* NOVA SEÇÃO PARA OS BOTÕES */
+        .top-buttons-container {
             display: flex;
             justify-content: center;
-            align-items: center;
-            font-size: 0.7rem;
-            font-weight: bold;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark-bg) 100%);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Sections */
-        section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .top-button {
+            padding: 1rem 1.5rem;
+            background: linear-gradient(to bottom, var(--secondary), var(--orange));
+            color: var(--text-light);
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--card-shadow);
+            min-width: 200px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .top-button:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--hover-shadow);
+            background: linear-gradient(to bottom, #FF9E30, #FF7F20);
+        }
+
+        .top-button:active {
+            transform: translateY(0);
+        }
+
+        .top-button.perfumaria {
+            background: linear-gradient(to bottom, #FF6B9C, #D8436E);
+        }
+        
+        .top-button.perfumaria:hover {
+            background: linear-gradient(to bottom, #FF80AA, #E05C85);
+        }
+
+        .top-button.advogados {
+            background: linear-gradient(to bottom, #4A90E2, #2A5CAA);
+        }
+        
+        .top-button.advogados:hover {
+            background: linear-gradient(to bottom, #5CA0F0, #3A6CC0);
+        }
+
+        .top-button.casa-irmaos {
+            background: linear-gradient(to bottom, #34C759, #2AA44F);
+        }
+        
+        .top-button.casa-irmaos:hover {
+            background: linear-gradient(to bottom, #44D769, #3AB45F);
+        }
+
+        /* Layout principal */
+        .main-container {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 1.5rem;
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Sidebar Esquerda */
+        .sidebar {
+            background: white;
+            padding: 1rem;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+            height: fit-content;
+        }
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 0.5rem;
+            background: var(--primary);
+            color: var(--text-light);
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-button i {
+            margin-right: 8px;
+        }
+
+        .nav-button:hover {
+            transform: translateX(5px);
+            box-shadow: var(--hover-shadow);
+            background: var(--accent);
+        }
+
+        /* Estilo especial para o primeiro botão */
+        .nav-button.agua-quente {
+            background: #FF0000;
+            color: #FFFF00;
+        }
+
+        .nav-button.agua-quente:hover {
+            background: #CC0000;
+            color: #FFFF00;
+        }
+
+        /* Conteúdo Principal */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        /* Seção de Notícias em Destaque */
+        .news-highlights {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--dark);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent);
-        }
-
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .product-img {
-            height: 280px;
-            width: 100%;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .product-name {
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            color: var(--dark);
-        }
-
-        .product-brand {
-            font-size: 0.9rem;
+            font-size: 1.5rem;
             color: var(--primary);
-            margin-bottom: 15px;
-            font-style: italic;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
         }
 
-        .product-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: all 0.3s;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .btn-primary {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: var(--dark);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        /* Gallery Section */
-        .gallery-container {
+        .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
-        .gallery-item {
-            height: 300px;
-            border-radius: 10px;
+        .news-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
             overflow: hidden;
-            position: relative;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .gallery-item img {
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--hover-shadow);
+        }
+
+        .news-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .news-content {
+            padding: 1rem;
+        }
+
+        .news-category {
+            display: inline-block;
+            background: var(--secondary);
+            color: var(--text-dark);
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .news-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* Seção de Fotos do Dia */
+        .daily-photos {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .photo-item {
+            position: relative;
+            border-radius: 4px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+        .photo-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.3s ease;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1);
+        .photo-item:hover img {
+            transform: scale(1.05);
         }
 
-        .gallery-item .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(138, 109, 98, 0.7);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .gallery-item:hover .overlay {
-            opacity: 1;
-        }
-
-        .overlay i {
-            color: white;
-            font-size: 2rem;
-        }
-
-        /* Forms */
-        .form-container {
-            max-width: 700px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .form-group {
-            margin-bottom: 25px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--dark);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--accent);
-        }
-
-        .form-row {
-            display: flex;
-            gap: 20px;
-        }
-
-        .form-row .form-group {
-            flex: 1;
-        }
-
-        /* Contact Section */
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            transition: transform 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .contact-card i {
-            font-size: 2.5rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-        }
-
-        .contact-card h3 {
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-
-        .contact-card p {
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        .whatsapp-btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background-color: #25D366;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .whatsapp-btn:hover {
-            background-color: #128C7E;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 50px 20px 20px;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
+        .photo-caption {
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 50px;
-            height: 2px;
-            background-color: var(--accent);
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .footer-column p {
-            line-height: 1.6;
-            margin-bottom: 15px;
+        /* Social Grid */
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .social-card {
+            background: var(--primary);
+            color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-card:hover {
+            transform: scale(1.03);
+            background: var(--accent);
+        }
+
+        /* Formulário de Contato */
+        .contact-form {
+            background: var(--primary);
+            padding: 1.5rem;
+            border-radius: 4px;
+            color: var(--text-light);
+            margin-top: 1.5rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: rgba(255,255,255,0.9);
+        }
+
+        .contact-form button {
+            background: var(--secondary);
+            color: var(--text-dark);
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            width: 100%;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: bold;
+        }
+
+        .contact-form button:hover {
+            background: #ffaa33;
+        }
+
+        /* Sidebar Direita */
+        .right-sidebar {
+            display: none; /* Vamos ocultar a sidebar direita original */
+        }
+
+        /* Botões Fixos */
+        .fixed-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: var(--text-light);
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: var(--hover-shadow);
+            transition: transform 0.3s;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .fixed-button-left {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: var(--orange);
+            color: var(--text-light);
+            padding: 1rem;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: var(--hover-shadow);
+            transition: transform 0.3s;
+            z-index: 1000;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .fixed-button:hover,
+        .fixed-button-left:hover {
+            transform: translateY(-5px);
+            filter: brightness(1.1);
+        }
+
+        .button-text {
+            display: none;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary);
         }
 
         .footer-links {
@@ -454,450 +549,375 @@
         }
 
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 0.5rem;
         }
 
         .footer-links a {
-            color: var(--secondary);
+            color: #ddd;
             text-decoration: none;
             transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
 
         .social-icons {
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
         .social-icons a {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: background-color 0.3s;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            transition: color 0.3s;
         }
 
         .social-icons a:hover {
-            background-color: var(--accent);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
             color: var(--secondary);
         }
 
-        /* Responsive Design */
-        .menu-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--dark);
+        .footer-bottom {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #444;
+        }
+
+        /* Responsividade */
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .header-container {
+                flex-wrap: wrap;
+            }
+            
+            .search-bar {
+                order: 3;
+                max-width: 100%;
+                margin: 1rem 0 0;
+            }
         }
 
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            .menu-toggle {
-                display: block;
-            }
-            
             .nav-links {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-                transition: clip-path 0.4s ease;
-            }
-            
-            .nav-links.active {
-                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
             }
             
             .nav-links li {
-                margin: 15px 0;
+                margin-right: 1rem;
+                white-space: nowrap;
             }
             
-            .form-row {
+            .top-buttons-container {
                 flex-direction: column;
-                gap: 0;
+                align-items: center;
+            }
+            
+            .top-button {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            .news-grid,
+            .photos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .fixed-button,
+            .fixed-button-left {
+                bottom: 70px;
+            }
+            
+            .fixed-button-left {
+                left: 10px;
+            }
+            
+            .fixed-button {
+                right: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-item {
+                margin-left: 0.8rem;
+                font-size: 0.8rem;
+            }
+            
+            .logo-container h1 {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo"><i class="fas fa-spa"></i> Perfumaria da Rita</a>
-            <div class="menu-toggle" id="menuToggle">
-                <i class="fas fa-bars"></i>
+    <!-- Header estilo Amazon -->
+    <header class="amazon-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE">
+                <h1>TVVALENAREDE</h1>
             </div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#inicio">Início</a></li>
-                <li><a href="#produtos">Produtos</a></li>
-                <li><a href="#galeria">Galeria</a></li>
-                <li><a href="#cadastro">Cadastro</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i><span class="cart-count">0</span></a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="hero" id="inicio">
-        <h1>PERFUMARIA DA RITA</h1>
-        <p>Descubra a essência da elegância com nossos exclusivos perfumes franceses. Uma experiência olfativa que transcende o tempo.</p>
-        <a href="#produtos" class="btn btn-primary">Explorar Coleção</a>
-    </section>
-
-    <!-- Products Section -->
-    <section id="produtos">
-        <h2 class="section-title">Nossos Produtos</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1592945403247-b9a38a7b8da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-name">Élégance Nocturne</h3>
-                    <p class="product-brand">Paris, França</p>
-                    <div class="product-actions">
-                        <button class="btn btn-outline">Detalhes</button>
-                        <button class="btn btn-primary add-to-cart">Comprar</button>
-                    </div>
-                </div>
+            
+            <div class="search-bar">
+                <input type="text" placeholder="Buscar no site...">
+                <button><i class="fas fa-search"></i></button>
             </div>
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1595425977377-6aaf05c446d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-name">Fleur d'Été</h3>
-                    <p class="product-brand">Provence, França</p>
-                    <div class="product-actions">
-                        <button class="btn btn-outline">Detalhes</button>
-                        <button class="btn btn-primary add-to-cart">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1590732870482-9c36b0f1dab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-name">Lumière d'Opale</h3>
-                    <p class="product-brand">Côte d'Azur, França</p>
-                    <div class="product-actions">
-                        <button class="btn btn-outline">Detalhes</button>
-                        <button class="btn btn-primary add-to-cart">Comprar</button>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-img" style="background-image: url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80');"></div>
-                <div class="product-info">
-                    <h3 class="product-name">Mystère Royal</h3>
-                    <p class="product-brand">Versailles, França</p>
-                    <div class="product-actions">
-                        <button class="btn btn-outline">Detalhes</button>
-                        <button class="btn btn-primary add-to-cart">Comprar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery Section -->
-    <section id="galeria">
-        <h2 class="section-title">Nossa Galeria</h2>
-        <div class="gallery-container">
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1590732870482-9c36b0f1dab2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume francês">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1595425977377-6aaf05c446d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Coleção de perfumes">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1592945403247-b9a38a7b8da7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Frasco de perfume">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Perfume exclusivo">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1595425898699-5d0d86e8b9e8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Loja de perfumes">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-            <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1620916297394-9b1c6b5a1e3d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Ingredientes naturais">
-                <div class="overlay"><i class="fas fa-search-plus"></i></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Registration Form -->
-    <section id="cadastro">
-        <h2 class="section-title">Cadastre-se</h2>
-        <div class="form-container">
-            <form id="registrationForm">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="firstName">Nome</label>
-                        <input type="text" id="firstName" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Sobrenome</label>
-                        <input type="text" id="lastName" class="form-control" required>
-                    </div>
-                </div>
+            
+            <div class="nav-right">
+                <a href="#" class="nav-item">
+                    <span>Olá, Faça login</span>
+                    <span>Sua Conta</span>
+                </a>
                 
-                <div class="form-group">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" class="form-control" required>
-                </div>
+                <a href="#" class="nav-item" style="position: relative;">
+                    <span>Retornos</span>
+                    <span>e Pedidos</span>
+                </a>
                 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="phone">Telefone</label>
-                        <input type="tel" id="phone" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="birthdate">Data de Nascimento</label>
-                        <input type="date" id="birthdate" class="form-control" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="address">Endereço</label>
-                    <input type="text" id="address" class="form-control" required>
-                </div>
-                
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="city">Cidade</label>
-                        <input type="text" id="city" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="state">Estado</label>
-                        <select id="state" class="form-control" required>
-                            <option value="">Selecione...</option>
-                            <option value="SP">São Paulo</option>
-                            <option value="RJ">Rio de Janeiro</option>
-                            <option value="MG">Minas Gerais</option>
-                            <option value="ES">Espírito Santo</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="zip">CEP</label>
-                        <input type="text" id="zip" class="form-control" required>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="password">Senha</label>
-                    <input type="password" id="password" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="confirmPassword">Confirme sua Senha</label>
-                    <input type="password" id="confirmPassword" class="form-control" required>
-                </div>
-                
-                <div class="form-group">
-                    <label>
-                        <input type="checkbox" required> Aceito os termos e condições
-                    </label>
-                </div>
-                
-                <button type="submit" class="btn btn-primary" style="width: 100%; padding: 15px;">Cadastrar</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contato">
-        <h2 class="section-title">Contato</h2>
-        <div class="contact-info">
-            <div class="contact-card">
-                <i class="fas fa-map-marker-alt"></i>
-                <h3>Endereço</h3>
-                <p>Rua Chiquinha de Mattos, 92<br>Centro, Taubaté - SP<br>CEP: 12020-010</p>
-            </div>
-            <div class="contact-card">
-                <i class="fas fa-phone-alt"></i>
-                <h3>Telefone</h3>
-                <p>(12) 99257-3744</p>
-                <a href="https://wa.me/5512992573744" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i> WhatsApp
+                <a href="#" class="nav-item" style="position: relative;">
+                    <span>Seu</span>
+                    <span>Carrinho</span>
+                    <span class="cart-count">0</span>
                 </a>
             </div>
-            <div class="contact-card">
-                <i class="fas fa-clock"></i>
-                <h3>Horário de Funcionamento</h3>
-                <p>Segunda a Sexta: 9h às 18h<br>Sábado: 9h às 14h<br>Domingo: Fechado</p>
-            </div>
         </div>
-    </section>
+    </header>
+    
+    <!-- Menu de navegação secundário -->
+    <nav class="secondary-nav">
+        <ul class="nav-links">
+            <li><a href="#"><i class="fas fa-bars"></i> Todos</a></li>
+            <li><a href="#">Notícias do Dia</a></li>
+            <li><a href="#">Vídeos</a></li>
+            <li><a href="#">Programação</a></li>
+            <li><a href="#">Esportes</a></li>
+            <li><a href="#">Entretenimento</a></li>
+            <li><a href="#">Tecnologia</a></li>
+            <li><a href="#">Mais</a></li>
+        </ul>
+    </nav>
+    
+    <!-- NOVA SEÇÃO DE BOTÕES SUPERIORES -->
+    <div class="top-buttons-container">
+        <a href="https://tvvalenarede.github.io/bonani2/" class="top-button perfumaria">Perfumaria da Rita</a>
+        <a href="https://tvvalenarede.webnode.page/?_gl=1*1p8g9b5*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg./" class="top-button advogados">J.E.C.S Advogados</a>
+        <a href="https://casa3-irmaos.webnode.page/" class="top-button casa-irmaos">Casa 3 Irmãos</a>
+    </div>
+
+    <div class="main-container">
+        <!-- Sidebar Esquerda -->
+        <div class="sidebar">
+            <a href="https://tvvalenarede.github.io/redesocial1/" class="nav-button agua-quente">
+                <i class="fas fa-futbol"></i> SITE DO MAICON JOGADOR
+            </a>
+            
+            <a href="https://www.facebook.com/TVRBRAZIL" class="nav-button agua-quente">
+                <i class="fas fa-tv"></i> TVVALENAREDE AO VIVO
+            </a>
+            <a href="https://tvvalenarede.github.io/jogos/" class="nav-button">
+                <i class="fas fa-energy-drink"></i> Shekinah Energéticos
+            </a>
+            <a href="https://casa3-irmaos.webnode.page" class="nav-button">
+                <i class="fas fa-home"></i> CASA 3 IRMÃOS
+            </a>
+            <a href="https://www.youtube.com/watch?v=z2j0Yzf8Myk&t=34s" class="nav-button">
+                <i class="fas fa-trophy"></i> PREMIAÇÃO ACEESP
+            </a>
+            <a href="https://made-center7.webnode.page" class="nav-button">
+                <i class="fas fa-futbol"></i> FUTEBOL
+            </a>
+            <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="nav-button">
+                <i class="fab fa-youtube"></i> YOUTUBE LIVE
+            </a>
+            <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="nav-button">
+                <i class="fas fa-beer"></i> BAR DO OSMAR
+            </a>
+            <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="nav-button">
+                <i class="fas fa-car"></i> SERGINHO PNEUS
+            </a>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="main-content">
+            <!-- Seção de Notícias em Destaque -->
+            <section class="news-highlights">
+                <h2 class="section-title">Notícias em Destaque</h2>
+                <div class="news-grid">
+                    <article class="news-card">
+                        <img src="https://picsum.photos/600/400?random=1" alt="Notícia" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Política</span>
+                            <h3 class="news-title">Novas medidas econômicas são anunciadas pelo governo</h3>
+                            <p class="news-excerpt">O ministro da economia apresentou hoje um pacote com medidas para estimular o crescimento econômico.</p>
+                            <span class="news-date">Há 2 horas</span>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <img src="https://picsum.photos/600/400?random=2" alt="Notícia" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Esportes</span>
+                            <h3 class="news-title">Time local vence campeonato estadual</h3>
+                            <p class="news-excerpt">Com uma vitória por 3 a 1, o time da cidade conquistou o título estadual após 10 anos de espera.</p>
+                            <span class="news-date">Há 5 horas</span>
+                        </div>
+                    </article>
+                    
+                    <article class="news-card">
+                        <img src="https://picsum.photos/600/400?random=3" alt="Notícia" class="news-image">
+                        <div class="news-content">
+                            <span class="news-category">Cultura</span>
+                            <h3 class="news-title">Festival de cinema começa nesta sexta</h3>
+                            <p class="news-excerpt">A 15ª edição do festival traz produções nacionais e internacionais com entrada gratuita.</p>
+                            <span class="news-date">Há 8 horas</span>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- Seção de Fotos do Dia -->
+            <section class="daily-photos">
+                <h2 class="section-title">Fotos do Dia</h2>
+                <div class="photos-grid">
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/400/300?random=4" alt="Foto do dia">
+                        <div class="photo-caption">Evento cultural na cidade atrai milhares de pessoas</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/400/300?random=5" alt="Foto do dia">
+                        <div class="photo-caption">Inauguração da nova unidade de saúde no bairro</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/400/300?random=6" alt="Foto do dia">
+                        <div class="photo-caption">Protesto pacífico reúne manifestantes no centro</div>
+                    </div>
+                    
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/400/300?random=7" alt="Foto do dia">
+                        <div class="photo-caption">Nova ponte facilita acesso entre os bairros</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Social Grid -->
+            <div class="social-grid">
+                <a href="https://made-center7.webnode.page" class="social-card">FUTEBOL</a>
+                <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="social-card">TVVALENAREDE YOUTUBE LIVE</a>
+                <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="social-card">BAR DO OSMAR</a>
+                <a href="https://casa3-irmaos.webnode.page/?_gl=1*1c6qg4l*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjE1MzI2NjMxOTAuMTc0MzUzMDU1Mi4xNzQzNTMwNTUx" class="social-card">CASA 3 IRMÃOS</a>
+                <a href="https://tvvalenarede.webnode.page/?_gl=1*1p8g9b5*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg." class="social-card">ADVOGADOS ASSOCIADOS J.E.C.S</a>
+                <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="social-card">SERGINHO PNEUS</a>
+            </div>
+
+            <!-- Formulário de Contato -->
+            <form class="contact-form" id="meuFormulario" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
+                <h3>Entre em Contato</h3>
+                <input type="text" id="nome" name="Nome" placeholder="Nome" required>
+                <input type="email" id="email" name="E-mail" placeholder="E-mail" required>
+                <textarea id="mensagem" name="Mensagem" rows="5" placeholder="Mensagem" required></textarea>
+                <input type="hidden" name="_subject" value="Nova mensagem do site">
+                <button type="submit">ENVIAR MENSAGEM</button>
+            </form>
+        </div>
+    </div>
 
     <!-- Footer -->
-    <footer>
+    <footer class="main-footer">
         <div class="footer-content">
-            <div class="footer-column">
-                <h3>Perfumaria da Rita</h3>
-                <p>Especializada em perfumes franceses de alta qualidade, trazendo elegância e sofisticação para o seu dia a dia.</p>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-pinterest"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h3>Links Rápidos</h3>
+            <div class="footer-section">
+                <h3>Conheça-nos</h3>
                 <ul class="footer-links">
-                    <li><a href="#inicio">Início</a></li>
-                    <li><a href="#produtos">Produtos</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#cadastro">Cadastro</a></li>
-                    <li><a href="#contato">Contato</a></li>
+                    <li><a href="#">Informações corporativas</a></li>
+                    <li><a href="#">Carreiras</a></li>
+                    <li><a href="#">Comunidade</a></li>
+                    <li><a href="#">Acessibilidade</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h3>Newsletter</h3>
-                <p>Inscreva-se para receber nossas novidades e promoções exclusivas.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="email" class="form-control" placeholder="Seu e-mail" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Inscrever-se</button>
-                </form>
+            
+            <div class="footer-section">
+                <h3>Deixe-nos ajudar você</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sua conta</a></li>
+                    <li><a href="#">Frete e prazo de entrega</a></li>
+                    <li><a href="#">Devoluções e reembolsos</a></li>
+                    <li><a href="#">Ajuda</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Redes Sociais</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/TVRBRAZIL" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/tvvalenarede" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="http://youtube.com/tvvalenarede" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.tiktok.com/@tvvalenarede" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            &copy; 2025 Perfumaria da Rita. Todos os direitos reservados para a TVVALENAREDE.
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TVVALENAREDE.COM.BR - Todos os direitos reservados</p>
         </div>
     </footer>
 
+    <!-- Botões Fixos -->
+    <a href="https://www.youtube.com/watch?v=ll-BtWdFNUc&t=66s" class="fixed-button">
+        <i class="fas fa-tv"></i>
+        <span class="button-text">PROGRAMA SHEKINAH</span>
+    </a>
+    <a href="https://tvvalenarede.webnode.page/?_gl=1*tgfs5g*_gcl_au*MTI0NjU5NzMzNS4xNzQxNzI2MjQ1LjkzMjUyOTk2Mi4xNzQyMzA0NTI5LjE3NDIzMDQ1Mjg." class="fixed-button-left">
+        <i class="fas fa-balance-scale"></i>
+        <span class="button-text">J.E.C.S</span>
+    </a>
+
     <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-        
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+        document.addEventListener('DOMContentLoaded', () => {
+            const formulario = document.getElementById('meuFormulario');
+
+            formulario.addEventListener('submit', (e) => {
                 e.preventDefault();
-                
-                navLinks.classList.remove('active');
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+
+                // Validação do e-mail
+                const email = formulario.email.value;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('Por favor, insira um e-mail válido!');
+                    return;
+                }
+
+                // Validação da mensagem
+                if (formulario.mensagem.value.trim().length < 10) {
+                    alert('A mensagem deve ter pelo menos 10 caracteres!');
+                    return;
+                }
+
+                // Confirmação de envio
+                if (confirm('Deseja realmente enviar a mensagem?')) {
+                    formulario.submit();
+                    alert('Mensagem enviada com sucesso!');
+                    formulario.reset();
+                }
             });
-        });
-        
-        // Cart Functionality
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        const cartCount = document.querySelector('.cart-count');
-        let count = 0;
-        
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                count++;
-                cartCount.textContent = count;
-                
-                // Animation effect
-                button.textContent = 'Adicionado!';
-                button.style.backgroundColor = '#4CAF50';
-                
-                setTimeout(() => {
-                    button.textContent = 'Comprar';
-                    button.style.backgroundColor = '';
-                }, 2000);
-            });
-        });
-        
-        // Form Submission
-        const registrationForm = document.getElementById('registrationForm');
-        
-        registrationForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Cadastro realizado com sucesso! Em breve você receberá novidades exclusivas.');
-            registrationForm.reset();
-        });
-        
-        // Gallery Lightbox Effect
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        
-        galleryItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const imgSrc = item.querySelector('img').src;
-                const lightbox = document.createElement('div');
-                lightbox.style.cssText = `
-                    position: fixed;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    background: rgba(0,0,0,0.9);
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    z-index: 2000;
-                    cursor: pointer;
-                `;
-                
-                const img = document.createElement('img');
-                img.src = imgSrc;
-                img.style.maxWidth = '90%';
-                img.style.maxHeight = '90%';
-                img.style.borderRadius = '10px';
-                
-                lightbox.appendChild(img);
-                document.body.appendChild(lightbox);
-                
-                lightbox.addEventListener('click', () => {
-                    document.body.removeChild(lightbox);
-                });
-            });
-        });
-        
-        // Sticky Navigation
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 100) {
-                nav.style.padding = '10px 0';
-                nav.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            } else {
-                nav.style.padding = '';
-                nav.style.boxShadow = '';
-            }
+            
+            // Simulação de carregamento de notícias (em um cenário real, isso viria de uma API)
+            console.log("Site TVVALENAREDE carregado com sucesso!");
         });
     </script>
 </body>
 </html>
+
+

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TVVALENAREDE - Notícias e Entretenimento</title>
+    <title>TVVALENAREDE - Notícias e Comercial 3D</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap">
     <style>
@@ -297,6 +297,80 @@
             display: flex;
             flex-direction: column;
             gap: 2rem;
+        }
+
+        /* Seção do Vídeo 3D */
+        .video-3d-section {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+        }
+
+        .video-3d-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* Proporção 16:9 */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-description {
+            background: linear-gradient(to right, var(--primary), var(--dark));
+            color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        .video-description h3 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .video-description p {
+            margin-bottom: 0.8rem;
+            line-height: 1.6;
+        }
+
+        .character-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .character {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+
+        .character h4 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
         }
 
         /* Seção de Notícias */
@@ -659,6 +733,10 @@
             .search-box input {
                 width: 100%;
             }
+
+            .character-list {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
@@ -815,6 +893,35 @@
 
         <!-- Conteúdo Principal -->
         <div class="main-content">
+            <!-- Seção do Vídeo 3D -->
+            <section class="video-3d-section">
+                <h2 class="video-3d-title">André Bonani diretor da TVVALENAREDE na premiação da ACEESP em São Paulo  em 2012</h2>
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/z2j0Yzf8Myk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                
+                <div class="video-description">
+                    <h3>Comercial Profissional dos ADVOGADOS ASSOCIADOS J.E.C.S DE Taubaté</h3>
+                    <p>Este vídeo de 8 segundos apresenta um comercial com efeitos de iluminação realista e sombras. Os personagens possuem movimentos realistas e sincronização labial precisa.</p>
+                    
+                    <div class="character-list">
+                        <div class="character">
+                            <h4>Carlos Augusto</h4>
+                            <p><strong>Papel:</strong> Visitante</p>
+                            <p><strong>Fala:</strong> "O Doutor José Eduardo é especialista em Direito de trabalho?"</p>
+                        </div>
+                        
+                        <div class="character">
+                            <h4>Maria José</h4>
+                            <p><strong>Papel:</strong> Recepcionista</p>
+                            <p><strong>Fala:</strong> "Sim, ele é o melhor Advogado Trabalhista da região"</p>
+                        </div>
+                    </div>
+                    
+                    <p style="margin-top: 1.5rem;"><strong>Ambiente:</strong> Saguão de elevador com atmosfera realista de lobby de escritório.</p>
+                </div>
+            </section>
+            
             <!-- Seção de Notícias -->
             <section class="news-section">
                 <h2 class="section-title">Últimas Notícias</h2>

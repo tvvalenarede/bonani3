@@ -33,6 +33,46 @@
             line-height: 1.6;
         }
 
+        /* Vídeo no topo */
+        .top-video-container {
+            width: 100%;
+            background-color: #000;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .top-video {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            display: block;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+
+        .video-btn {
+            background-color: rgba(255, 153, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .video-btn:hover {
+            background-color: var(--secondary);
+        }
+
         /* Header estilo moderno */
         .main-header {
             background: linear-gradient(to right, var(--primary), var(--dark));
@@ -802,6 +842,18 @@
     </style>
 </head>
 <body>
+    <!-- Vídeo no topo do site -->
+    <div class="top-video-container">
+        <video class="top-video" controls>
+            <source src="https://github.com/tvvalenarede/bonani3/raw/main/advogadovideo1.mp4" type="video/mp4">
+            Seu navegador não suporta o elemento de vídeo.
+        </video>
+        <div class="video-controls">
+            <button class="video-btn" onclick="playVideo()"><i class="fas fa-play"></i> Reproduzir</button>
+            <button class="video-btn" onclick="pauseVideo()"><i class="fas fa-pause"></i> Pausar</button>
+        </div>
+    </div>
+
     <!-- Header principal -->
     <header class="main-header">
         <div class="header-container">
@@ -1161,6 +1213,15 @@
                 }
             });
         });
+
+        // Funções para controlar o vídeo
+        function playVideo() {
+            document.querySelector('.top-video').play();
+        }
+
+        function pauseVideo() {
+            document.querySelector('.top-video').pause();
+        }
     </script>
 </body>
 </html>

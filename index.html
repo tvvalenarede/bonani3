@@ -474,6 +474,8 @@
             box-shadow: var(--card-shadow);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             background: white;
+            display: flex;
+            flex-direction: column;
         }
 
         .news-card:hover {
@@ -481,14 +483,30 @@
             box-shadow: var(--hover-shadow);
         }
 
-        .news-image {
+        .news-image-container {
             width: 100%;
             height: 180px;
+            overflow: hidden;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover .news-image {
+            transform: scale(1.05);
         }
 
         .news-content {
             padding: 1.2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .news-category {
@@ -514,6 +532,7 @@
             color: #666;
             margin-bottom: 1rem;
             line-height: 1.5;
+            flex-grow: 1;
         }
 
         .news-date {
@@ -522,6 +541,13 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
+        }
+
+        .news-source {
+            font-size: 0.8rem;
+            color: #777;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
 
         /* Seção de Vídeos */
@@ -684,6 +710,28 @@
 
         .contact-form button:hover {
             background: #ffaa33;
+        }
+
+        /* Loader para notícias */
+        .news-loader {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         /* Botões Fixos */
@@ -1013,67 +1061,11 @@
             
             <!-- Seção de Notícias -->
             <section class="news-section">
-                <h2 class="section-title">Últimas Notícias</h2>
-                <div class="news-grid">
-                    <article class="news-card">
-                        <img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Política" class="news-image">
-                        <div class="news-content">
-                            <span class="news-category">Política</span>
-                            <h3 class="news-title">Novas medidas econômicas são anunciadas pelo governo federal</h3>
-                            <p class="news-excerpt">O ministro da economia apresentou hoje um pacote com medidas para estimular o crescimento econômico e conter a inflação no país.</p>
-                            <div class="news-date">
-                                <i class="far fa-clock"></i> Há 2 horas
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Esportes" class="news-image">
-                        <div class="news-content">
-                            <span class="news-category">Esportes</span>
-                            <h3 class="news-title">Time local vence campeonato estadual após 10 anos</h3>
-                            <p class="news-excerpt">Com uma vitória por 3 a 1, o time da cidade conquistou o título estadual após uma década de espera dos torcedores.</p>
-                            <div class="news-date">
-                                <i class="far fa-clock"></i> Há 5 horas
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cultura" class="news-image">
-                        <div class="news-content">
-                            <span class="news-category">Cultura</span>
-                            <h3 class="news-title">Festival de cinema começa nesta sexta com produções nacionais</h3>
-                            <p class="news-excerpt">A 15ª edição do festival traz produções nacionais e internacionais com entrada gratuita em diversos locais da cidade.</p>
-                            <div class="news-date">
-                                <i class="far fa-clock"></i> Há 8 horas
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d15?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Saúde" class="news-image">
-                        <div class="news-content">
-                            <span class="news-category">Saúde</span>
-                            <h3 class="news-title">Nova unidade de saúde é inaugurada na região norte</h3>
-                            <p class="news-excerpt">O prefeito inaugurou hoje a nova UPA que vai atender mais de 50 mil pessoas na região norte da cidade.</p>
-                            <div class="news-date">
-                                <i class="far fa-clock"></i> Ontem, 18:30
-                            </div>
-                        </div>
-                    </article>
-                    
-                    <article class="news-card">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Economia" class="news-image">
-                        <div class="news-content">
-                            <span class="news-category">Economia</span>
-                            <h3 class="news-title">Setor de tecnologia cresce 12% no último trimestre</h3>
-                            <p class="news-excerpt">Dados divulgados hoje show that o setor de tecnologia foi o que mais cresceu no país no último trimestre.</p>
-                            <div class="news-date">
-                                <i class="far fa-clock"></i> Ontem, 14:15
-                            </div>
-                        </div>
-                    </article>
+                <h2 class="section-title">Últimas Notícias do Google</h2>
+                <div class="news-grid" id="news-container">
+                    <div class="news-loader">
+                        <div class="loader"></div>
+                    </div>
                 </div>
             </section>
             
@@ -1219,7 +1211,7 @@
 
                 // Validação do e-mail
                 const email = formulario.email.value;
-                if (!/^[^\s@]+@[^\s@]+@[^\s@]+$/.test(email)) {
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
                     alert('Por favor, insira um e-mail válido!');
                     return;
                 }
@@ -1238,27 +1230,107 @@
                 }
             });
             
-            // Simulação de atualização de notícias
-            console.log("Site TVVALENAREDE carregado com sucesso!");
+            // Funções para controlar o vídeo
+            function playVideo() {
+                document.querySelector('.top-video').play();
+            }
+
+            function pauseVideo() {
+                document.querySelector('.top-video').pause();
+            }
             
-            // Atualizar a data das notícias (simulação)
-            const newsDates = document.querySelectorAll('.news-date');
-            const now = new Date();
-            newsDates.forEach((dateElem, index) => {
-                if (index === 0) {
-                    dateElem.innerHTML = '<i class="far fa-clock"></i> Há ' + (Math.floor(Math.random() * 4) + 1) + ' horas';
+            // Carregar notícias do RSS
+            async function loadNews() {
+                try {
+                    const newsContainer = document.getElementById('news-container');
+                    
+                    // Usando um proxy CORS para acessar o feed RSS
+                    const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+                    const targetUrl = 'https://news.google.com/rss?hl=pt-BR&gl=BR&ceid=BR:pt-419';
+                    
+                    const response = await fetch(proxyUrl + targetUrl);
+                    const xmlText = await response.text();
+                    
+                    // Converter XML para DOM
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(xmlText, "text/xml");
+                    
+                    // Extrair itens de notícia
+                    const items = xmlDoc.getElementsByTagName("item");
+                    newsContainer.innerHTML = ''; // Limpar loader
+                    
+                    // Processar cada item de notícia
+                    for (let i = 0; i < Math.min(items.length, 6); i++) {
+                        const item = items[i];
+                        const title = item.getElementsByTagName("title")[0].textContent;
+                        const link = item.getElementsByTagName("link")[0].textContent;
+                        const pubDate = item.getElementsByTagName("pubDate")[0].textContent;
+                        const description = item.getElementsByTagName("description")[0].textContent;
+                        
+                        // Extrair a fonte da notícia
+                        let source = "Google Notícias";
+                        const sourceMatch = title.match(/ - (.+?)$/);
+                        if (sourceMatch) {
+                            source = sourceMatch[1];
+                        }
+                        
+                        // Extrair imagem da descrição (se disponível)
+                        let imageUrl = "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"; // Imagem padrão
+                        const imgMatch = description.match(/<img[^>]+src="([^">]+)"/);
+                        if (imgMatch) {
+                            imageUrl = imgMatch[1];
+                        }
+                        
+                        // Limpar o título removendo a fonte
+                        const cleanTitle = title.replace(/ - (.+?)$/, '');
+                        
+                        // Formatar a data
+                        const dateObj = new Date(pubDate);
+                        const formattedDate = dateObj.toLocaleDateString('pt-BR', {
+                            day: '2-digit',
+                            month: '2-digit',
+                            year: 'numeric'
+                        });
+                        
+                        // Criar elemento de notícia
+                        const newsCard = document.createElement('article');
+                        newsCard.className = 'news-card';
+                        newsCard.innerHTML = `
+                            <div class="news-image-container">
+                                <img src="${imageUrl}" alt="${cleanTitle}" class="news-image" onerror="this.src='https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80'">
+                            </div>
+                            <div class="news-content">
+                                <span class="news-category">Notícia</span>
+                                <h3 class="news-title">${cleanTitle}</h3>
+                                <p class="news-excerpt">${description.replace(/<[^>]*>/g, '').substring(0, 100)}...</p>
+                                <div class="news-date">
+                                    <i class="far fa-clock"></i> ${formattedDate}
+                                </div>
+                                <div class="news-source">Fonte: ${source}</div>
+                            </div>
+                        `;
+                        
+                        // Adicionar clique para abrir a notícia
+                        newsCard.addEventListener('click', () => {
+                            window.open(link, '_blank');
+                        });
+                        
+                        newsContainer.appendChild(newsCard);
+                    }
+                } catch (error) {
+                    console.error('Erro ao carregar notícias:', error);
+                    document.getElementById('news-container').innerHTML = `
+                        <div style="text-align: center; padding: 2rem; color: #666;">
+                            <i class="fas fa-exclamation-triangle" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <p>Não foi possível carregar as notícias no momento.</p>
+                        </div>
+                    `;
                 }
-            });
+            }
+            
+            // Iniciar carregamento das notícias
+            loadNews();
         });
-
-        // Funções para controlar o vídeo
-        function playVideo() {
-            document.querySelector('.top-video').play();
-        }
-
-        function pauseVideo() {
-            document.querySelector('.top-video').pause();
-        }
     </script>
 </body>
 </html>

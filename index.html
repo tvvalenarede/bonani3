@@ -264,45 +264,6 @@
             filter: brightness(1.05);
         }
 
-        /* ===== TOP VÍDEO ===== */
-        .top-video-section {
-            background: #0a1a2b;
-            padding: 2rem 1rem;
-            border-bottom: 4px solid var(--secondary);
-        }
-        .top-video-container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-        .top-video-title {
-            font-family: 'Montserrat', sans-serif;
-            color: white;
-            font-size: 1.8rem;
-            text-align: center;
-            margin-bottom: 1.2rem;
-            letter-spacing: 1px;
-        }
-        .top-video-title i {
-            color: var(--secondary);
-            margin-right: 10px;
-        }
-        .top-video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-hover);
-        }
-        .top-video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
         /* ===== MAIN GRID ===== */
         .main-grid {
             max-width: 1400px;
@@ -357,7 +318,7 @@
             color: white;
         }
 
-        /* ===== SIDEBAR – FILMES (novo bloco) ===== */
+        /* ===== SIDEBAR – FILMES ===== */
         .sidebar-filmes {
             background: var(--gradient-film);
             border-radius: 24px;
@@ -465,6 +426,58 @@
         .movie-info {
             padding: 1.5rem;
             background: #fef9e6;
+        }
+
+        /* ===== SEÇÃO VÍDEOS DESTAQUE (meio) ===== */
+        .destaque-videos-section {
+            background: white;
+            border-radius: 28px;
+            padding: 1.8rem;
+            box-shadow: var(--shadow-sm);
+            border-left: 6px solid var(--secondary);
+        }
+
+        .destaque-videos-section .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 6px;
+            color: var(--primary);
+        }
+
+        .destaque-videos-section .section-title i {
+            color: var(--secondary);
+            margin-right: 10px;
+        }
+
+        .destaque-video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .destaque-video-item {
+            background: #f9f9ff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .destaque-video-item .video-title {
+            font-weight: 700;
+            font-size: 1.05rem;
+            padding: 0.8rem 1rem;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .destaque-video-item .video-title i {
+            color: var(--secondary);
         }
 
         /* ===== SEÇÃO FILMES (dentro do conteúdo) ===== */
@@ -774,15 +787,15 @@
             .sidebar-filmes {
                 display: none;
             }
-            /* Mostra a seção de filmes no conteúdo em mobile */
             .filmes-content-section {
                 display: block !important;
+            }
+            .destaque-video-grid {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (min-width: 1025px) {
-            /* Em desktop, a seção de filmes no conteúdo fica oculta,
-               pois já temos a sidebar com FILMES */
             .filmes-content-section {
                 display: none;
             }
@@ -798,9 +811,6 @@
             }
             .search-box {
                 width: 100%;
-            }
-            .top-video-title {
-                font-size: 1.3rem;
             }
             .bottom-films-grid {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -837,348 +847,335 @@
 </head>
 <body>
 
+    <!-- ===== BANNER ===== -->
+    <div class="hero-banner">
+        <i class="fas fa-film"></i> TVVALENAREDE AGORA PRODUZ FILMES | "SEGREDO INVISÍVEL" EM DESTAQUE <i class="fas fa-ticket-alt"></i>
+    </div>
+    <div class="pimenta-wrapper">
+        <a href="https://tvvalenarede.github.io/tv1/" class="btn-pimenta"><i class="fas fa-eye"></i> ASSISTIR TEORIA DO ABSURDO</a>
+    </div>
+
+    <!-- ===== HEADER ===== -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE">
+                <div class="logo-text">
+                    <h1>TVVALENAREDE 20 ANOS</h1>
+                    <span>WhatsApp: (12) 99769-0407 | Notícias, Filmes e Entretenimento</span>
+                </div>
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/TVRBRAZIL" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/tvvalenarede" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="http://youtube.com/tvvalenarede" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@tvvalenarede" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== NAV ===== -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
+                <li><a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a></li>
+                <li><a href="#videos"><i class="fas fa-video"></i> Vídeos</a></li>
+                <li><a href="#fotos"><i class="fas fa-image"></i> Fotos</a></li>
+                <li><a href="#esportes"><i class="fas fa-futbol"></i> Esportes</a></li>
+                <li><a href="#entretenimento"><i class="fas fa-microphone-alt"></i> Entretenimento</a></li>
+            </ul>
+            <div class="search-box">
+                <input type="text" placeholder="Buscar notícias...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== TOP BUTTONS ===== -->
+    <div class="top-buttons-bar">
+        <a href="https://tvvalenarede.github.io/tv1/" class="top-btn perfumaria"><i class="fas fa-spa"></i> BAR DO OSMAR</a>
+        <a href="https://tvvalenarede.webnode.page/" class="top-btn advogados"><i class="fas fa-gavel"></i> J.E.C.S Advogados</a>
+        <a href="https://casa3-irmaos.webnode.page/" class="top-btn casa-irmaos"><i class="fas fa-home"></i> Casa 3 Irmãos</a>
+        <a href="https://tvvalenarede.github.io/jogos/" class="top-btn shekinah"><i class="fas fa-bolt"></i> SERGINHOS PNEUS</a>
+    </div>
+
     <!-- ============================== -->
-    <!-- ===== VÍDEO TOPO 1 ===== -->
+    <!-- ===== GRID PRINCIPAL ===== -->
     <!-- ============================== -->
-    <section class="top-video-section">
-        <div class="top-video-container">
-            <div class="top-video-title">
-                <i class="fas fa-play-circle"></i> TVVALENAREDE – DESTAQUE ESPECIAL TEORIA DO ABSURDO 3 VERTICAL.
+    <div class="main-grid">
+
+        <!-- ===== SIDEBAR (ESQUERDA) ===== -->
+        <aside class="sidebar-menu">
+            <h3><i class="fas fa-bars"></i> MENU TVVALENAREDE</h3>
+            <a href="https://www.youtube.com/@tvvalenarede" class="side-link"><i class="fas fa-futbol"></i> ACESSE A TVVALENAREDE/YOUTUBE</a>
+            <a href="https://www.youtube.com/channel/UCKFrOkJeEoW2zeo4CDo913A" class="side-link"><i class="fas fa-futbol"></i> ACESSE A TVBRASILREDE/YOUTUBE</a>
+            <a href="https://www.youtube.com/channel/UCPsq2rd1FOg7uLycFXUfDxw" class="side-link"><i class="fas fa-tv"></i> ACESSE A TVBONANI/YOUTUBE</a>
+            <a href="https://www.youtube.com/@tvrbrazil2165" class="side-link"><i class="fas fa-tv"></i> ACESSE A TVRBRAZIL/YOUTUBE</a>
+            <a href="https://www.youtube.com/@soccerworld8551" class="side-link"><i class="fas fa-bolt"></i> ACESSE SOCCERWORLD/YOUTUBE</a>
+            <a href="https://casa3-irmaos.webnode.page" class="side-link"><i class="fas fa-home"></i> CASA 3 IRMÃOS</a>
+            <a href="https://www.youtube.com/watch?v=z2j0Yzf8Myk&t=34s" class="side-link"><i class="fas fa-trophy"></i> PREMIAÇÃO ACEESP</a>
+            <a href="https://made-center7.webnode.page" class="side-link"><i class="fas fa-futbol"></i> FUTEBOL</a>
+            <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="side-link"><i class="fab fa-youtube"></i> YOUTUBE LIVE</a>
+            <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="side-link"><i class="fas fa-beer"></i> BAR DO OSMAR</a>
+            <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="side-link"><i class="fas fa-car"></i> SERGINHO PNEUS</a>
+
+            <!-- FILMES NA SIDEBAR -->
+            <div class="sidebar-filmes">
+                <h3><i class="fas fa-film"></i> FILMES</h3>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> TEORIA DO ABSURDO <span class="film-badge">★</span></a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO</a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 2</a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 4</a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 4 <span class="film-badge">+</span></a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 5</a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 6</a>
+                <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 7</a>
             </div>
-            <div class="top-video-wrapper">
-                <iframe src="https://www.youtube.com/embed/owXwtqQj2xM"
-                title="Vídeo em destaque - TVVALENAREDE"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
-            </iframe>
-        </div>
-    </div>
-</section>
+        </aside>
 
-<!-- ===== VÍDEO TOPO 2 ===== -->
-<section class="top-video-section" style="border-top: 2px solid rgba(255,215,0,0.15); padding-top: 1.5rem;">
-    <div class="top-video-container">
-        <div class="top-video-title">
-            <i class="fas fa-play-circle"></i> TVVALENAREDE – DESTAQUE ESPECIAL TEORIA DO ABSURDO 2 HORIZONTAL.
-        </div>
-        <div class="top-video-wrapper">
-            <iframe src="https://www.youtube.com/embed/FDUqkXiuCwE?start=2"
-            title="Vídeo em destaque - TVVALENAREDE"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen>
-        </iframe>
-    </div>
-</div>
-</section>
+        <!-- ===== CONTEÚDO PRINCIPAL (DIREITA) ===== -->
+        <div class="content-area">
 
-<!-- ===== BANNER ===== -->
-<div class="hero-banner">
-    <i class="fas fa-film"></i> TVVALENAREDE AGORA PRODUZ FILMES | "SEGREDO INVISÍVEL" EM DESTAQUE <i class="fas fa-ticket-alt"></i>
-</div>
-<div class="pimenta-wrapper">
-    <a href="https://tvvalenarede.github.io/tv1/" class="btn-pimenta"><i class="fas fa-eye"></i> ASSISTIR TEORIA DO ABSURDO</a>
-</div>
-
-<!-- ===== HEADER ===== -->
-<header class="main-header">
-    <div class="header-container">
-        <div class="logo-area">
-            <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE">
-            <div class="logo-text">
-                <h1>TVVALENAREDE 20 ANOS</h1>
-                <span>WhatsApp: (12) 99769-0407 | Notícias, Filmes e Entretenimento</span>
-            </div>
-        </div>
-        <div class="social-icons">
-            <a href="https://www.facebook.com/TVRBRAZIL" target="_blank"><i class="fab fa-facebook"></i></a>
-            <a href="https://www.instagram.com/tvvalenarede" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="http://youtube.com/tvvalenarede" target="_blank"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.tiktok.com/@tvvalenarede" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-    </div>
-</header>
-
-<!-- ===== NAV ===== -->
-<nav class="main-nav">
-    <div class="nav-container">
-        <ul class="nav-links">
-            <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a></li>
-            <li><a href="#videos"><i class="fas fa-video"></i> Vídeos</a></li>
-            <li><a href="#fotos"><i class="fas fa-image"></i> Fotos</a></li>
-            <li><a href="#esportes"><i class="fas fa-futbol"></i> Esportes</a></li>
-            <li><a href="#entretenimento"><i class="fas fa-microphone-alt"></i> Entretenimento</a></li>
-        </ul>
-        <div class="search-box">
-            <input type="text" placeholder="Buscar notícias...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-    </div>
-</nav>
-
-<!-- ===== TOP BUTTONS ===== -->
-<div class="top-buttons-bar">
-    <a href="https://tvvalenarede.github.io/tv1/" class="top-btn perfumaria"><i class="fas fa-spa"></i> BAR DO OSMAR</a>
-    <a href="https://tvvalenarede.webnode.page/" class="top-btn advogados"><i class="fas fa-gavel"></i> J.E.C.S Advogados</a>
-    <a href="https://casa3-irmaos.webnode.page/" class="top-btn casa-irmaos"><i class="fas fa-home"></i> Casa 3 Irmãos</a>
-    <a href="https://tvvalenarede.github.io/jogos/" class="top-btn shekinah"><i class="fas fa-bolt"></i> SERGINHOS PNEUS</a>
-</div>
-
-<!-- ============================== -->
-<!-- ===== GRID PRINCIPAL ===== -->
-<!-- ============================== -->
-<div class="main-grid">
-
-    <!-- ===== SIDEBAR (ESQUERDA) ===== -->
-    <aside class="sidebar-menu">
-        <h3><i class="fas fa-bars"></i> MENU TVVALENAREDE</h3>
-        <a href="https://www.youtube.com/@tvvalenarede" class="side-link"><i class="fas fa-futbol"></i> ACESSE A TVVALENAREDE/YOUTUBE</a>
-        <a href="https://www.youtube.com/channel/UCKFrOkJeEoW2zeo4CDo913A" class="side-link"><i class="fas fa-futbol"></i> ACESSE A TVBRASILREDE/YOUTUBE</a>
-        <a href="https://www.youtube.com/channel/UCPsq2rd1FOg7uLycFXUfDxw" class="side-link"><i class="fas fa-tv"></i> ACESSE A TVBONANI/YOUTUBE</a>
-        <a href="https://www.youtube.com/@tvrbrazil2165" class="side-link"><i class="fas fa-tv"></i> ACESSE A TVRBRAZIL/YOUTUBE</a>
-        <a href="https://www.youtube.com/@soccerworld8551" class="side-link"><i class="fas fa-bolt"></i> ACESSE SOCCERWORLD/YOUTUBE</a>
-        <a href="https://casa3-irmaos.webnode.page" class="side-link"><i class="fas fa-home"></i> CASA 3 IRMÃOS</a>
-        <a href="https://www.youtube.com/watch?v=z2j0Yzf8Myk&t=34s" class="side-link"><i class="fas fa-trophy"></i> PREMIAÇÃO ACEESP</a>
-        <a href="https://made-center7.webnode.page" class="side-link"><i class="fas fa-futbol"></i> FUTEBOL</a>
-        <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="side-link"><i class="fab fa-youtube"></i> YOUTUBE LIVE</a>
-        <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="side-link"><i class="fas fa-beer"></i> BAR DO OSMAR</a>
-        <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="side-link"><i class="fas fa-car"></i> SERGINHO PNEUS</a>
-
-        <!-- ===== NOVO: FILMES NA SIDEBAR (lado que já tinha lista) ===== -->
-        <div class="sidebar-filmes">
-            <h3><i class="fas fa-film"></i> FILMES</h3>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> TEORIA DO ABSURDO <span class="film-badge">★</span></a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO</a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 2</a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 4</a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 4 <span class="film-badge">+</span></a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 5</a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 6</a>
-            <a href="#" class="film-side-item"><i class="fas fa-play-circle"></i> JOGO DO TEMPO 7</a>
-        </div>
-    </aside>
-
-    <!-- ===== CONTEÚDO PRINCIPAL (DIREITA) ===== -->
-    <div class="content-area">
-
-        <!-- ===== FILME PRINCIPAL ===== -->
-        <div class="featured-movie">
-            <div class="movie-header">
-                <h2><i class="fas fa-video"></i> FILME SEGREDO INVISÍVEL + ENTREVISTA EXCLUSIVA</h2>
-            </div>
-            <div class="video-responsive">
-                <iframe src="https://www.youtube.com/embed/nB1sSZ89uEw" title="Filme Segredo Invisível" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="movie-info">
-                <p><strong>🎬 “SEGREDO INVISÍVEL”</strong> – Primeiro longa produzido pela TVVALENAREDE. Suspense eletrizante com atores locais. Abaixo, a entrevista com a atriz Jéssica Miller.</p>
-            </div>
-            <div class="video-responsive" style="margin-top: 0.5rem;">
-                <iframe src="https://www.youtube.com/embed/3SAhvCfJcMY" title="Entrevista Jessica Miller" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="movie-info" style="background: #eef2ff;">
-                <h3>🎙️ Entrevista com Jéssica Miller (atriz do filme)</h3>
-                <p>Jéssica revela bastidores e desafios da produção, além de novidades da TVVALENAREDE.</p>
-            </div>
-        </div>
-
-        <!-- ===== COMERCIAL 3D ===== -->
-        <div class="section-card">
-            <h3 class="section-title">⚡ Comercial 3D | J.E.C.S Advogados</h3>
-            <div class="video-responsive">
-                <iframe src="https://www.youtube.com/embed/uzUbXqkAugo" title="Comercial JECS Advogados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <p style="margin-top: 1rem;"><strong>FILME TEORIA DO ABSURDO:</strong> Os astronautas chegam em Marte e encontram esqueleto humano. "Mostrando que os humanos originaram do planeta Marte?" – "Filme que muda tudo o que se achava da origem da vida no Planeta Terra.".</p>
-        </div>
-
-        <!-- ========================================================== -->
-        <!-- ===== SEÇÃO FILMES (dentro do conteúdo, visível em mobile) ===== -->
-        <!-- ========================================================== -->
-        <div class="filmes-content-section" id="filmes-content">
-            <h3 class="section-title"><i class="fas fa-film"></i> FILMES</h3>
-            <div class="film-grid-content">
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 6</span> <span class="film-num">05</span></div>
-                <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 7</span> <span class="film-num">06</span></div>
-            </div>
-        </div>
-
-        <!-- ===== NOTÍCIAS ===== -->
-        <div class="section-card" id="noticias">
-            <h3 class="section-title"><i class="far fa-newspaper"></i> Últimas Notícias</h3>
-            <div class="news-grid">
-                <div class="news-card"><img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1" alt="Política"><div class="news-content"><span class="news-category" style="background:#ff9900; padding:2px 8px; border-radius:20px;">Política</span><h4>Novas medidas econômicas</h4><p>Governo anuncia pacote para crescimento e controle da inflação.</p></div></div>
-                <div class="news-card"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211" alt="Esportes"><div class="news-content"><span class="news-category" style="background:#ff9900;">Esportes</span><h4>Time local campeão estadual</h4><p>Após 10 anos, time levanta taça com vitória de 3 a 1.</p></div></div>
-                <div class="news-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" alt="Cultura"><div class="news-content"><span class="news-category" style="background:#ff9900;">Cultura</span><h4>Festival de cinema nacional</h4><p>Entrada gratuita para diversas produções brasileiras.</p></div></div>
-                <div class="news-card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d15" alt="Saúde"><div class="news-content"><span class="news-category" style="background:#ff9900;">Saúde</span><h4>Nova UPA na região norte</h4><p>Unidade atenderá mais de 50 mil pessoas.</p></div></div>
-            </div>
-        </div>
-
-        <!-- ===== VÍDEOS ===== -->
-        <div class="section-card" id="videos">
-            <h3 class="section-title"><i class="fas fa-film"></i> FILMES PRODUZIDOS PELA TVVALENAREDE</h3>
-            <div class="video-grid">
-                <div class="video-item">
-                    <div class="video-responsive"><iframe src="https://www.youtube.com/embed/3SAhvCfJcMY" title="Entrevista Jessica Miller" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="movie-info" style="padding: 1rem;"><strong>🎬 Entrevista com Jéssica Miller</strong> – Bastidores do filme "Segredo Invisível".</div>
+            <!-- ===== FILME PRINCIPAL ===== -->
+            <div class="featured-movie">
+                <div class="movie-header">
+                    <h2><i class="fas fa-video"></i> FILME SEGREDO INVISÍVEL + ENTREVISTA EXCLUSIVA</h2>
                 </div>
-                <div class="video-item">
-                    <div class="video-responsive"><iframe src="https://www.youtube.com/embed/uzUbXqkAugo" title="Comercial J.E.C.S" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="movie-info" style="padding: 1rem;"><strong>📺 Comercial Profissional</strong> – Advogados Associados J.E.C.S (3D realista).</div>
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube.com/embed/nB1sSZ89uEw" title="Filme Segredo Invisível" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
-                <div class="video-item">
-                    <div class="video-responsive"><iframe src="https://www.youtube.com/embed/6O5F27vVp8E" title="Novo Filme TVVALENAREDE" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="movie-info" style="padding: 1rem;"><strong>🎥 Novo Filme – "Título em Breve"</strong> – Produção original da TVVALENAREDE.</div>
+                <div class="movie-info">
+                    <p><strong>🎬 “SEGREDO INVISÍVEL”</strong> – Primeiro longa produzido pela TVVALENAREDE. Suspense eletrizante com atores locais. Abaixo, a entrevista com a atriz Jéssica Miller.</p>
                 </div>
-                <div class="video-item">
-                    <div class="video-responsive"><iframe src="https://www.youtube.com/embed/z2j0Yzf8Myk" title="Premiação ACEESP" frameborder="0" allowfullscreen></iframe></div>
-                    <div class="movie-info" style="padding: 1rem;"><strong>🏆 Premiação ACEESP</strong> – Evento especial de destaque.</div>
+                <div class="video-responsive" style="margin-top: 0.5rem;">
+                    <iframe src="https://www.youtube.com/embed/3SAhvCfJcMY" title="Entrevista Jessica Miller" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="movie-info" style="background: #eef2ff;">
+                    <h3>🎙️ Entrevista com Jéssica Miller (atriz do filme)</h3>
+                    <p>Jéssica revela bastidores e desafios da produção, além de novidades da TVVALENAREDE.</p>
                 </div>
             </div>
-        </div>
 
-        <!-- ===== FOTOS ===== -->
-        <div class="section-card" id="fotos">
-            <h3 class="section-title"><i class="fas fa-camera-retro"></i> Fotos do Dia</h3>
-            <div class="photo-grid">
-                <div class="photo-card"><img src="https://images.unsplash.com/photo-1558901357-ca41e027e43a" alt="Evento cultural"><div class="photo-caption">Evento cultural na praça central</div></div>
-                <div class="photo-card"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c" alt="Inauguração"><div class="photo-caption">Nova unidade de saúde</div></div>
-                <div class="photo-card"><img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9" alt="Manifestação"><div class="photo-caption">Manifestação pacífica</div></div>
-                <div class="photo-card"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390" alt="Ponte"><div class="photo-caption">Nova ponte liga bairros</div></div>
+            <!-- ===== NOVA SEÇÃO: VÍDEOS EM DESTAQUE (meio) ===== -->
+            <div class="destaque-videos-section">
+                <h3 class="section-title"><i class="fas fa-play-circle"></i> DESTAQUES EM VÍDEO</h3>
+                <div class="destaque-video-grid">
+                    <!-- Vídeo 1 -->
+                    <div class="destaque-video-item">
+                        <div class="video-title">
+                            <i class="fas fa-film"></i> TEORIA DO ABSURDO 3 – VERTICAL
+                        </div>
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/owXwtqQj2xM" title="Teoria do Absurdo 3 Vertical" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                    <!-- Vídeo 2 -->
+                    <div class="destaque-video-item">
+                        <div class="video-title">
+                            <i class="fas fa-film"></i> TEORIA DO ABSURDO 2 – HORIZONTAL
+                        </div>
+                        <div class="video-responsive">
+                            <iframe src="https://www.youtube.com/embed/FDUqkXiuCwE?start=2" title="Teoria do Absurdo 2 Horizontal" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== COMERCIAL 3D ===== -->
+            <div class="section-card">
+                <h3 class="section-title">⚡ Comercial 3D | J.E.C.S Advogados</h3>
+                <div class="video-responsive">
+                    <iframe src="https://www.youtube.com/embed/uzUbXqkAugo" title="Comercial JECS Advogados" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <p style="margin-top: 1rem;"><strong>FILME TEORIA DO ABSURDO:</strong> Os astronautas chegam em Marte e encontram esqueleto humano. "Mostrando que os humanos originaram do planeta Marte?" – "Filme que muda tudo o que se achava da origem da vida no Planeta Terra.".</p>
+            </div>
+
+            <!-- ===== SEÇÃO FILMES (mobile) ===== -->
+            <div class="filmes-content-section" id="filmes-content">
+                <h3 class="section-title"><i class="fas fa-film"></i> FILMES</h3>
+                <div class="film-grid-content">
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 6</span> <span class="film-num">05</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 7</span> <span class="film-num">06</span></div>
+                </div>
+            </div>
+
+            <!-- ===== NOTÍCIAS ===== -->
+            <div class="section-card" id="noticias">
+                <h3 class="section-title"><i class="far fa-newspaper"></i> Últimas Notícias</h3>
+                <div class="news-grid">
+                    <div class="news-card"><img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1" alt="Política"><div class="news-content"><span class="news-category" style="background:#ff9900; padding:2px 8px; border-radius:20px;">Política</span><h4>Novas medidas econômicas</h4><p>Governo anuncia pacote para crescimento e controle da inflação.</p></div></div>
+                    <div class="news-card"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211" alt="Esportes"><div class="news-content"><span class="news-category" style="background:#ff9900;">Esportes</span><h4>Time local campeão estadual</h4><p>Após 10 anos, time levanta taça com vitória de 3 a 1.</p></div></div>
+                    <div class="news-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" alt="Cultura"><div class="news-content"><span class="news-category" style="background:#ff9900;">Cultura</span><h4>Festival de cinema nacional</h4><p>Entrada gratuita para diversas produções brasileiras.</p></div></div>
+                    <div class="news-card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d15" alt="Saúde"><div class="news-content"><span class="news-category" style="background:#ff9900;">Saúde</span><h4>Nova UPA na região norte</h4><p>Unidade atenderá mais de 50 mil pessoas.</p></div></div>
+                </div>
+            </div>
+
+            <!-- ===== VÍDEOS ===== -->
+            <div class="section-card" id="videos">
+                <h3 class="section-title"><i class="fas fa-film"></i> FILMES PRODUZIDOS PELA TVVALENAREDE</h3>
+                <div class="video-grid">
+                    <div class="video-item">
+                        <div class="video-responsive"><iframe src="https://www.youtube.com/embed/3SAhvCfJcMY" title="Entrevista Jessica Miller" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="movie-info" style="padding: 1rem;"><strong>🎬 Entrevista com Jéssica Miller</strong> – Bastidores do filme "Segredo Invisível".</div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-responsive"><iframe src="https://www.youtube.com/embed/uzUbXqkAugo" title="Comercial J.E.C.S" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="movie-info" style="padding: 1rem;"><strong>📺 Comercial Profissional</strong> – Advogados Associados J.E.C.S (3D realista).</div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-responsive"><iframe src="https://www.youtube.com/embed/6O5F27vVp8E" title="Novo Filme TVVALENAREDE" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="movie-info" style="padding: 1rem;"><strong>🎥 Novo Filme – "Título em Breve"</strong> – Produção original da TVVALENAREDE.</div>
+                    </div>
+                    <div class="video-item">
+                        <div class="video-responsive"><iframe src="https://www.youtube.com/embed/z2j0Yzf8Myk" title="Premiação ACEESP" frameborder="0" allowfullscreen></iframe></div>
+                        <div class="movie-info" style="padding: 1rem;"><strong>🏆 Premiação ACEESP</strong> – Evento especial de destaque.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FOTOS ===== -->
+            <div class="section-card" id="fotos">
+                <h3 class="section-title"><i class="fas fa-camera-retro"></i> Fotos do Dia</h3>
+                <div class="photo-grid">
+                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1558901357-ca41e027e43a" alt="Evento cultural"><div class="photo-caption">Evento cultural na praça central</div></div>
+                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c" alt="Inauguração"><div class="photo-caption">Nova unidade de saúde</div></div>
+                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9" alt="Manifestação"><div class="photo-caption">Manifestação pacífica</div></div>
+                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390" alt="Ponte"><div class="photo-caption">Nova ponte liga bairros</div></div>
+                </div>
+            </div>
+
+            <!-- ===== REDES SOCIAIS ===== -->
+            <div class="social-links-grid">
+                <a href="https://made-center7.webnode.page" class="social-card">⚽ FUTEBOL</a>
+                <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="social-card">📺 YOUTUBE LIVE</a>
+                <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="social-card">🍻 BAR DO OSMAR</a>
+                <a href="https://casa3-irmaos.webnode.page/" class="social-card">🏠 CASA 3 IRMÃOS</a>
+                <a href="https://tvvalenarede.webnode.page/" class="social-card">⚖️ J.E.C.S Advogados</a>
+                <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="social-card">🚗 SERGINHO PNEUS</a>
+            </div>
+
+            <!-- ===== CONTATO ===== -->
+            <form class="contact-form" id="contactForm" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
+                <h3><i class="fas fa-envelope-open-text"></i> Fale Conosco</h3>
+                <input type="text" name="Nome" placeholder="Seu nome" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px; border:none;">
+                <input type="email" name="E-mail" placeholder="Seu e-mail" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px;">
+                <textarea name="Mensagem" rows="4" placeholder="Sua mensagem" required style="width:100%; margin:8px 0; padding:12px; border-radius:20px;"></textarea>
+                <input type="hidden" name="_subject" value="Contato via site TVVALENAREDE">
+                <button type="submit" style="background:#ff9900; border:none; padding:12px; border-radius:60px; font-weight:bold; width:100%; margin-top:10px; cursor:pointer;">📨 ENVIAR MENSAGEM</button>
+            </form>
+
+        </div><!-- /content-area -->
+    </div><!-- /main-grid -->
+
+    <!-- ============================== -->
+    <!-- ===== COLUNA ABAIXO DO SITE ===== -->
+    <!-- ============================== -->
+    <section class="bottom-films-column">
+        <div class="container">
+            <div class="col-title">
+                <i class="fas fa-film"></i> FILMOGRAFIA TVVALENAREDE
+            </div>
+            <div class="bottom-films-grid">
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    TEORIA DO ABSURDO
+                    <span class="film-order">★ Destaque</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO
+                    <span class="film-order">01</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 2
+                    <span class="film-order">02</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 4
+                    <span class="film-order">03</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 4
+                    <span class="film-order">+</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 5
+                    <span class="film-order">04</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 6
+                    <span class="film-order">05</span>
+                </div>
+                <div class="bottom-film-item">
+                    <i class="fas fa-play-circle"></i>
+                    JOGO DO TEMPO 7
+                    <span class="film-order">06</span>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- ===== REDES SOCIAIS ===== -->
-        <div class="social-links-grid">
-            <a href="https://made-center7.webnode.page" class="social-card">⚽ FUTEBOL</a>
-            <a href="https://www.youtube.com/channel/UC2d71oRHuTsosOap7GeYT4g" class="social-card">📺 YOUTUBE LIVE</a>
-            <a href="https://bar-do-osmar-de-taubate-s-p.webnode.page/" class="social-card">🍻 BAR DO OSMAR</a>
-            <a href="https://casa3-irmaos.webnode.page/" class="social-card">🏠 CASA 3 IRMÃOS</a>
-            <a href="https://tvvalenarede.webnode.page/" class="social-card">⚖️ J.E.C.S Advogados</a>
-            <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="social-card">🚗 SERGINHO PNEUS</a>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div><h4>TVVALENAREDE</h4><p>20 anos levando informação e entretenimento. Agora produzindo filmes.</p></div>
+            <div><h4>Parceiros</h4><ul style="list-style:none;"><li>Bar do Osmar</li><li>J.E.C.S Advogados</li><li>Casa 3 Irmãos</li><li>Shekinah Energéticos</li></ul></div>
+            <div><h4>Contato</h4><p><i class="fas fa-phone"></i> (12) 99769-0407<br><i class="fas fa-envelope"></i> tvbonani@gmail.com<br>Taubaté – SP</p></div>
         </div>
+        <div style="text-align:center; margin-top:2rem; font-size:0.8rem;">© 2026 TVVALENAREDE.COM.BR – Todos os direitos reservados</div>
+    </footer>
 
-        <!-- ===== CONTATO ===== -->
-        <form class="contact-form" id="contactForm" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
-            <h3><i class="fas fa-envelope-open-text"></i> Fale Conosco</h3>
-            <input type="text" name="Nome" placeholder="Seu nome" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px; border:none;">
-            <input type="email" name="E-mail" placeholder="Seu e-mail" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px;">
-            <textarea name="Mensagem" rows="4" placeholder="Sua mensagem" required style="width:100%; margin:8px 0; padding:12px; border-radius:20px;"></textarea>
-            <input type="hidden" name="_subject" value="Contato via site TVVALENAREDE">
-            <button type="submit" style="background:#ff9900; border:none; padding:12px; border-radius:60px; font-weight:bold; width:100%; margin-top:10px; cursor:pointer;">📨 ENVIAR MENSAGEM</button>
-        </form>
+    <!-- ===== BOTÕES FLUTUANTES ===== -->
+    <a href="https://www.youtube.com/watch?v=F_JiRVhsgZ8&t=13s" class="fixed-right"><i class="fas fa-bolt"></i> PROGRAMA SHEKINAH</a>
+    <a href="https://tvvalenarede.webnode.page/" class="fixed-left"><i class="fas fa-gavel"></i> J.E.C.S</a>
 
-    </div><!-- /content-area -->
-</div><!-- /main-grid -->
+    <!-- ===== SCRIPTS ===== -->
+    <script>
+        // Validação e envio do formulário
+        const form = document.getElementById('contactForm');
+        if (form) {
+            form.addEventListener('submit', function(e) {
+                const email = form.querySelector('input[name="E-mail"]').value;
+                const msg = form.querySelector('textarea[name="Mensagem"]').value;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                    alert('Por favor, insira um e-mail válido.');
+                    e.preventDefault();
+                    return;
+                }
+                if (msg.trim().length < 5) {
+                    alert('A mensagem deve ter pelo menos 5 caracteres.');
+                    e.preventDefault();
+                    return;
+                }
+                if (confirm('Enviar mensagem para TVVALENAREDE?')) {
+                    alert('Enviado com sucesso! Entraremos em contato.');
+                } else {
+                    e.preventDefault();
+                }
+            });
+        }
 
-<!-- ============================== -->
-<!-- ===== COLUNA ABAIXO DO SITE ===== -->
-<!-- ============================== -->
-<section class="bottom-films-column">
-    <div class="container">
-        <div class="col-title">
-            <i class="fas fa-film"></i> FILMOGRAFIA TVVALENAREDE
-        </div>
-        <div class="bottom-films-grid">
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                TEORIA DO ABSURDO
-                <span class="film-order">★ Destaque</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO
-                <span class="film-order">01</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 2
-                <span class="film-order">02</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 4
-                <span class="film-order">03</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 4
-                <span class="film-order">+</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 5
-                <span class="film-order">04</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 6
-                <span class="film-order">05</span>
-            </div>
-            <div class="bottom-film-item">
-                <i class="fas fa-play-circle"></i>
-                JOGO DO TEMPO 7
-                <span class="film-order">06</span>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ===== FOOTER ===== -->
-<footer class="footer">
-    <div class="footer-grid">
-        <div><h4>TVVALENAREDE</h4><p>20 anos levando informação e entretenimento. Agora produzindo filmes.</p></div>
-        <div><h4>Parceiros</h4><ul style="list-style:none;"><li>Bar do Osmar</li><li>J.E.C.S Advogados</li><li>Casa 3 Irmãos</li><li>Shekinah Energéticos</li></ul></div>
-        <div><h4>Contato</h4><p><i class="fas fa-phone"></i> (12) 99769-0407<br><i class="fas fa-envelope"></i> tvbonani@gmail.com<br>Taubaté – SP</p></div>
-    </div>
-    <div style="text-align:center; margin-top:2rem; font-size:0.8rem;">© 2026 TVVALENAREDE.COM.BR – Todos os direitos reservados</div>
-</footer>
-
-<!-- ===== BOTÕES FLUTUANTES ===== -->
-<a href="https://www.youtube.com/watch?v=F_JiRVhsgZ8&t=13s" class="fixed-right"><i class="fas fa-bolt"></i> PROGRAMA SHEKINAH</a>
-<a href="https://tvvalenarede.webnode.page/" class="fixed-left"><i class="fas fa-gavel"></i> J.E.C.S</a>
-
-<!-- ===== SCRIPTS ===== -->
-<script>
-    // Validação e envio do formulário
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', function(e) {
-            const email = form.querySelector('input[name="E-mail"]').value;
-            const msg = form.querySelector('textarea[name="Mensagem"]').value;
-            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-                alert('Por favor, insira um e-mail válido.');
-                e.preventDefault();
-                return;
-            }
-            if (msg.trim().length < 5) {
-                alert('A mensagem deve ter pelo menos 5 caracteres.');
-                e.preventDefault();
-                return;
-            }
-            if (confirm('Enviar mensagem para TVVALENAREDE?')) {
-                alert('Enviado com sucesso! Entraremos em contato.');
-            } else {
-                e.preventDefault();
-            }
-        });
-    }
-
-    // Busca
-    const searchBtn = document.querySelector('.search-box button');
-    const searchInput = document.querySelector('.search-box input');
-    if (searchBtn) {
-        searchBtn.addEventListener('click', function() {
-            alert('🔍 Busca em desenvolvimento em breve. Use as seções do site.');
-        });
-    }
-</script>
+        // Busca
+        const searchBtn = document.querySelector('.search-box button');
+        const searchInput = document.querySelector('.search-box input');
+        if (searchBtn) {
+            searchBtn.addEventListener('click', function() {
+                alert('🔍 Busca em desenvolvimento em breve. Use as seções do site.');
+            });
+        }
+    </script>
 
 </body>
 </html>

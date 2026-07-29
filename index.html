@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
     <title>TVVALENAREDE 20 ANOS | Notícias, Filmes e Entretenimento</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" />
     <style>
+        /* ===== RESET & BASE ===== */
         * {
             margin: 0;
             padding: 0;
@@ -523,7 +524,6 @@
             transition: 0.2s;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             border: 1px solid rgba(255, 215, 0, 0.08);
-            text-decoration: none;
         }
 
         .film-card-content i {
@@ -537,7 +537,6 @@
             font-weight: 600;
             font-size: 0.92rem;
             letter-spacing: 0.3px;
-            color: #f0e6ff;
         }
 
         .film-card-content .film-num {
@@ -556,7 +555,7 @@
             background: linear-gradient(145deg, #2a1a4a, #1a0a2e);
         }
 
-        /* ===== SEÇÃO DE FILMES (substitui as notícias) ===== */
+        /* ===== SEÇÃO DE FILMES (substituindo notícias) ===== */
         .section-card {
             background: white;
             border-radius: 28px;
@@ -574,7 +573,147 @@
             color: var(--primary);
         }
 
-        /* ===== VÍDEOS ===== */
+        /* ===== GRID DE FILMES (substituindo notícias) ===== */
+        .film-grid-replace {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .film-card-replace {
+            background: #f9f9ff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.25s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .film-card-replace:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .film-card-replace .thumb {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .film-card-replace .thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .film-card-replace .thumb .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+
+        .film-card-replace:hover .thumb .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .film-card-replace .info {
+            padding: 0.8rem 1rem;
+            background: white;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .film-card-replace .info .badge {
+            background: var(--secondary);
+            color: white;
+            padding: 0.1rem 0.6rem;
+            border-radius: 40px;
+            font-size: 0.6rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* ===== GRID DE FILMES (substituindo fotos) ===== */
+        .film-grid-fotos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 1rem;
+        }
+
+        .film-card-foto {
+            background: #f9f9ff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: 0.25s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .film-card-foto:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .film-card-foto .thumb {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .film-card-foto .thumb img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .film-card-foto .thumb .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.2rem;
+            color: white;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            opacity: 0.8;
+            transition: 0.2s;
+        }
+
+        .film-card-foto:hover .thumb .play-icon {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .film-card-foto .info {
+            padding: 0.5rem 0.7rem;
+            background: white;
+            font-weight: 600;
+            font-size: 0.75rem;
+            text-align: center;
+            color: var(--primary);
+        }
+
+        /* ===== OUTROS ===== */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -799,6 +938,12 @@
             .film-grid-content {
                 grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             }
+            .film-grid-replace {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            }
+            .film-grid-fotos {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            }
         }
 
         @media (max-width: 480px) {
@@ -819,6 +964,12 @@
                 font-size: 1rem;
                 width: 22px;
             }
+            .film-grid-replace {
+                grid-template-columns: 1fr 1fr;
+            }
+            .film-grid-fotos {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
@@ -836,7 +987,7 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE">
+                <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE" />
                 <div class="logo-text">
                     <h1>TVVALENAREDE 20 ANOS</h1>
                     <span>WhatsApp: (12) 99769-0407 | Notícias, Filmes e Entretenimento</span>
@@ -856,14 +1007,14 @@
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="#noticias"><i class="fas fa-film"></i> Filmes</a></li>
+                <li><a href="#filmes-noticias"><i class="fas fa-film"></i> Filmes</a></li>
                 <li><a href="#videos"><i class="fas fa-video"></i> Vídeos</a></li>
-                <li><a href="#fotos"><i class="fas fa-image"></i> Fotos</a></li>
+                <li><a href="#gorilas"><i class="fas fa-gorilla"></i> Gorilas</a></li>
                 <li><a href="#esportes"><i class="fas fa-futbol"></i> Esportes</a></li>
                 <li><a href="#entretenimento"><i class="fas fa-microphone-alt"></i> Entretenimento</a></li>
             </ul>
             <div class="search-box">
-                <input type="text" placeholder="Buscar notícias...">
+                <input type="text" placeholder="Buscar..." />
                 <button><i class="fas fa-search"></i></button>
             </div>
         </div>
@@ -972,25 +1123,84 @@
             <div class="filmes-content-section" id="filmes-content">
                 <h3 class="section-title"><i class="fas fa-film"></i> FILMES</h3>
                 <div class="film-grid-content">
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></a>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 6</span> <span class="film-num">05</span></div>
+                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 7</span> <span class="film-num">06</span></div>
                 </div>
             </div>
 
-            <!-- ===== SUBSTITUIÇÃO: ÚLTIMAS NOTÍCIAS → 6 FILMES ===== -->
-            <div class="section-card" id="noticias">
-                <h3 class="section-title"><i class="fas fa-film"></i> NOSSOS FILMES</h3>
-                <div class="film-grid-content">
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></a>
-                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></a>
+            <!-- ========================================================= -->
+            <!-- ===== SEÇÃO SUBSTITUINDO "ÚLTIMAS NOTÍCIAS" ===== -->
+            <!-- ========================================================= -->
+            <div class="section-card" id="filmes-noticias">
+                <h3 class="section-title"><i class="fas fa-film"></i> FILMES EM DESTAQUE</h3>
+                <div class="film-grid-replace">
+                    <!-- 6 filmes com o mesmo link -->
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 1" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 1</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 2" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 2</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 3" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 3</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 4" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 4</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 5" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 5</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-replace">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/ziuveP7Z1pg/0.jpg" alt="Filme 6" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">
+                            <span>Filme 6</span>
+                            <span class="badge">▶</span>
+                        </div>
+                    </a>
                 </div>
             </div>
 
@@ -1017,14 +1227,69 @@
                 </div>
             </div>
 
-            <!-- ===== FOTOS ===== -->
-            <div class="section-card" id="fotos">
-                <h3 class="section-title"><i class="fas fa-camera-retro"></i> Fotos do Dia</h3>
-                <div class="photo-grid">
-                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1558901357-ca41e027e43a" alt="Evento cultural"><div class="photo-caption">Evento cultural na praça central</div></div>
-                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1584982751601-97dcc096659c" alt="Inauguração"><div class="photo-caption">Nova unidade de saúde</div></div>
-                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1589652717521-10c0d092dea9" alt="Manifestação"><div class="photo-caption">Manifestação pacífica</div></div>
-                    <div class="photo-card"><img src="https://images.unsplash.com/photo-1519501025264-65ba15a82390" alt="Ponte"><div class="photo-caption">Nova ponte liga bairros</div></div>
+            <!-- ========================================================= -->
+            <!-- ===== SEÇÃO SUBSTITUINDO "FOTOS DO DIA" ===== -->
+            <!-- ========================================================= -->
+            <div class="section-card" id="gorilas">
+                <h3 class="section-title"><i class="fas fa-gorilla"></i> Vem aí OS GORILAS VOLTARAM</h3>
+                <div class="film-grid-fotos">
+                    <!-- 8 filmes com o link https://www.youtube.com/watch?v=6YAHO6dOGuw -->
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 1" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 1</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 2" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 2</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 3" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 3</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 4" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 4</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 5" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 5</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 6" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 6</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 7" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 7</div>
+                    </a>
+                    <a href="https://www.youtube.com/watch?v=6YAHO6dOGuw" target="_blank" class="film-card-foto">
+                        <div class="thumb">
+                            <img src="https://img.youtube.com/vi/6YAHO6dOGuw/0.jpg" alt="Gorila 8" />
+                            <div class="play-icon"><i class="fas fa-play-circle"></i></div>
+                        </div>
+                        <div class="info">Gorila 8</div>
+                    </a>
                 </div>
             </div>
 
@@ -1041,10 +1306,10 @@
             <!-- ===== CONTATO ===== -->
             <form class="contact-form" id="contactForm" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
                 <h3><i class="fas fa-envelope-open-text"></i> Fale Conosco</h3>
-                <input type="text" name="Nome" placeholder="Seu nome" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px; border:none;">
-                <input type="email" name="E-mail" placeholder="Seu e-mail" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px;">
+                <input type="text" name="Nome" placeholder="Seu nome" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px; border:none;" />
+                <input type="email" name="E-mail" placeholder="Seu e-mail" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px;" />
                 <textarea name="Mensagem" rows="4" placeholder="Sua mensagem" required style="width:100%; margin:8px 0; padding:12px; border-radius:20px;"></textarea>
-                <input type="hidden" name="_subject" value="Contato via site TVVALENAREDE">
+                <input type="hidden" name="_subject" value="Contato via site TVVALENAREDE" />
                 <button type="submit" style="background:#ff9900; border:none; padding:12px; border-radius:60px; font-weight:bold; width:100%; margin-top:10px; cursor:pointer;">📨 ENVIAR MENSAGEM</button>
             </form>
 
@@ -1109,7 +1374,7 @@
         <div class="footer-grid">
             <div><h4>TVVALENAREDE</h4><p>20 anos levando informação e entretenimento. Agora produzindo filmes.</p></div>
             <div><h4>Parceiros</h4><ul style="list-style:none;"><li>Bar do Osmar</li><li>J.E.C.S Advogados</li><li>Casa 3 Irmãos</li><li>Shekinah Energéticos</li></ul></div>
-            <div><h4>Contato</h4><p><i class="fas fa-phone"></i> (12) 99769-0407<br><i class="fas fa-envelope"></i> tvbonani@gmail.com<br>Taubaté – SP</p></div>
+            <div><h4>Contato</h4><p><i class="fas fa-phone"></i> (12) 99769-0407<br /><i class="fas fa-envelope"></i> tvbonani@gmail.com<br />Taubaté – SP</p></div>
         </div>
         <div style="text-align:center; margin-top:2rem; font-size:0.8rem;">© 2026 TVVALENAREDE.COM.BR – Todos os direitos reservados</div>
     </footer>
@@ -1153,6 +1418,5 @@
             });
         }
     </script>
-
 </body>
 </html>

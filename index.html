@@ -523,6 +523,7 @@
             transition: 0.2s;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             border: 1px solid rgba(255, 215, 0, 0.08);
+            text-decoration: none;
         }
 
         .film-card-content i {
@@ -536,6 +537,7 @@
             font-weight: 600;
             font-size: 0.92rem;
             letter-spacing: 0.3px;
+            color: #f0e6ff;
         }
 
         .film-card-content .film-num {
@@ -554,7 +556,7 @@
             background: linear-gradient(145deg, #2a1a4a, #1a0a2e);
         }
 
-        /* ===== NOTÍCIAS ===== */
+        /* ===== SEÇÃO DE FILMES (substitui as notícias) ===== */
         .section-card {
             background: white;
             border-radius: 28px;
@@ -569,35 +571,10 @@
             border-bottom: 3px solid var(--secondary);
             display: inline-block;
             padding-bottom: 6px;
+            color: var(--primary);
         }
 
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .news-card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            transition: 0.2s;
-        }
-
-        .news-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-        .news-card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 1rem;
-        }
-
+        /* ===== VÍDEOS ===== */
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -879,7 +856,7 @@
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="#"><i class="fas fa-home"></i> Início</a></li>
-                <li><a href="#noticias"><i class="fas fa-newspaper"></i> Notícias</a></li>
+                <li><a href="#noticias"><i class="fas fa-film"></i> Filmes</a></li>
                 <li><a href="#videos"><i class="fas fa-video"></i> Vídeos</a></li>
                 <li><a href="#fotos"><i class="fas fa-image"></i> Fotos</a></li>
                 <li><a href="#esportes"><i class="fas fa-futbol"></i> Esportes</a></li>
@@ -995,25 +972,25 @@
             <div class="filmes-content-section" id="filmes-content">
                 <h3 class="section-title"><i class="fas fa-film"></i> FILMES</h3>
                 <div class="film-grid-content">
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 6</span> <span class="film-num">05</span></div>
-                    <div class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 7</span> <span class="film-num">06</span></div>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></a>
                 </div>
             </div>
 
-            <!-- ===== NOTÍCIAS ===== -->
+            <!-- ===== SUBSTITUIÇÃO: ÚLTIMAS NOTÍCIAS → 6 FILMES ===== -->
             <div class="section-card" id="noticias">
-                <h3 class="section-title"><i class="far fa-newspaper"></i> Últimas Notícias</h3>
-                <div class="news-grid">
-                    <div class="news-card"><img src="https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1" alt="Política"><div class="news-content"><span class="news-category" style="background:#ff9900; padding:2px 8px; border-radius:20px;">Política</span><h4>Novas medidas econômicas</h4><p>Governo anuncia pacote para crescimento e controle da inflação.</p></div></div>
-                    <div class="news-card"><img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211" alt="Esportes"><div class="news-content"><span class="news-category" style="background:#ff9900;">Esportes</span><h4>Time local campeão estadual</h4><p>Após 10 anos, time levanta taça com vitória de 3 a 1.</p></div></div>
-                    <div class="news-card"><img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819" alt="Cultura"><div class="news-content"><span class="news-category" style="background:#ff9900;">Cultura</span><h4>Festival de cinema nacional</h4><p>Entrada gratuita para diversas produções brasileiras.</p></div></div>
-                    <div class="news-card"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d15" alt="Saúde"><div class="news-content"><span class="news-category" style="background:#ff9900;">Saúde</span><h4>Nova UPA na região norte</h4><p>Unidade atenderá mais de 50 mil pessoas.</p></div></div>
+                <h3 class="section-title"><i class="fas fa-film"></i> NOSSOS FILMES</h3>
+                <div class="film-grid-content">
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>TEORIA DO ABSURDO</span> <span class="film-num">★</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO</span> <span class="film-num">01</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 2</span> <span class="film-num">02</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">03</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 4</span> <span class="film-num">+</span></a>
+                    <a href="https://www.youtube.com/watch?v=ziuveP7Z1pg" target="_blank" class="film-card-content"><i class="fas fa-play-circle"></i> <span>JOGO DO TEMPO 5</span> <span class="film-num">04</span></a>
                 </div>
             </div>
 

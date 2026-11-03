@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -36,6 +35,65 @@
             color: var(--text);
             line-height: 1.5;
             scroll-behavior: smooth;
+        }
+
+        /* ===== LOGO PRONAC – TOPO DO SITE (BEM VISÍVEL) ===== */
+        .top-logo-section {
+            background:
+                radial-gradient(circle at 50% 0%, rgba(255, 153, 0, 0.25), transparent 60%),
+                linear-gradient(145deg, #071a24, #0a2b3e);
+            text-align: center;
+            padding: 1.2rem 1rem 1.4rem;
+            border-bottom: 4px solid var(--secondary);
+            box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.45);
+        }
+
+        .top-logo-section a {
+            display: inline-block;
+            max-width: 100%;
+            line-height: 0;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.25s ease, filter 0.3s ease;
+            filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.6));
+        }
+
+        .top-logo-section a:hover {
+            transform: scale(1.015);
+            filter: drop-shadow(0 16px 40px rgba(255, 153, 0, 0.35));
+        }
+
+        .top-logo-section a:active {
+            transform: scale(0.985);
+        }
+
+        .top-logo-section img {
+            width: 100%;
+            max-width: 1150px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 18px;
+            border: 2px solid rgba(255, 153, 0, 0.25);
+            background: #04121a;
+        }
+
+        .top-logo-badge {
+            display: inline-block;
+            margin-top: 0.9rem;
+            background: var(--gradient-gold);
+            color: #1e2a32;
+            font-weight: 800;
+            font-size: 0.9rem;
+            letter-spacing: 0.6px;
+            padding: 0.45rem 1.8rem;
+            border-radius: 60px;
+            box-shadow: 0 6px 18px rgba(255, 153, 0, 0.35);
+        }
+
+        .top-logo-badge i {
+            margin-right: 0.5rem;
+            color: #b91c1c;
         }
 
         /* ===== BANNER ANIMADO ===== */
@@ -746,10 +804,36 @@
                 font-size: 0.75rem;
                 padding: 0.3rem 1.2rem;
             }
+            /* Logo do topo no celular */
+            .top-logo-section {
+                padding: 0.8rem 0.5rem 1rem;
+            }
+            .top-logo-section img {
+                border-radius: 12px;
+            }
+            .top-logo-badge {
+                font-size: 0.72rem;
+                padding: 0.35rem 1.2rem;
+                margin-top: 0.6rem;
+            }
         }
     </style>
 </head>
 <body>
+
+    <!-- ====== LOGO PRONAC – TOPO DO SITE (BEM VISÍVEL) ====== -->
+    <section class="top-logo-section">
+        <a href="https://tvvalenarede.github.io/tv1/" title="TVVALENAREDE – Clique e assista">
+            <img
+                src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/LOGO.PRONAC.png"
+                alt="LOGO PRONAC – TVVALENAREDE 25 ANOS"
+                loading="eager"
+            />
+        </a>
+        <div class="top-logo-badge">
+            <i class="fas fa-star"></i> TVVALENAREDE 25 ANOS · LOGO OFICIAL
+        </div>
+    </section>
 
     <!-- ====== BANNER E CABEÇALHO ====== -->
     <div class="hero-banner">
@@ -817,13 +901,12 @@
         </div>
     </nav>
 
-    <!-- ====== BOTÕES PARCEIROS (COM OS NOVOS BOTÕES VALESOM E CASA DA BATERIA) ====== -->
+    <!-- ====== BOTÕES PARCEIROS ====== -->
     <div class="top-buttons-bar">
         <a href="https://tvvalenarede.github.io/tv1/" class="top-btn perfumaria"><i class="fas fa-spa"></i> BAR DO OSMAR</a>
         <a href="https://tvvalenarede.webnode.page/" class="top-btn advogados"><i class="fas fa-gavel"></i> J.E.C.S Advogados</a>
         <a href="https://casa3-irmaos.webnode.page/" class="top-btn casa-irmaos"><i class="fas fa-home"></i> Casa 3 Irmãos</a>
         <a href="https://tvvalenarede.github.io/jogos/" class="top-btn shekinah"><i class="fas fa-bolt"></i> Shekinah Energéticos</a>
-        <!-- NOVOS BOTÕES NÃO FLUTUANTES -->
         <a href="https://www.instagram.com/centroauditivovalesom/" class="top-btn valesom"><i class="fas fa-music"></i> VALESOM</a>
         <a href="#" class="top-btn casa-bateria"><i class="fas fa-drum"></i> CASA DA BATERIA</a>
     </div>

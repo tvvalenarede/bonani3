@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,11 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" />
     <style>
         /* ===== RESET & BASE ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #0a2b3e;
@@ -38,33 +33,90 @@
             scroll-behavior: smooth;
         }
 
-        /* ===== BANNER PRONAC / LEI ROUANET NO TOPO ===== */
+        /* ===== BANNERS PRONAC + GIF ROUANET NO TOPO ===== */
         .pronac-top {
             width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 14px 16px;
+            padding: 20px 16px;
             background: linear-gradient(135deg, #071a24, #0a2b3e);
-            border-bottom: 3px solid #d6a63c;
+            border-bottom: 4px solid #d6a63c;
         }
-        .pronac-top img {
+
+        .pronac-banners {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            width: 100%;
+            max-width: 1400px;
+        }
+
+        /* Imagem PRONAC (estática) */
+        .pronac-img {
             display: block;
-            width: min(100%, 1100px);
             height: auto;
-            max-height: 260px;
+            max-height: 280px;
+            width: auto;
+            max-width: 100%;
             object-fit: contain;
-            border-radius: 12px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+            border: 2px solid rgba(214, 166, 60, 0.4);
+            transition: transform 0.3s ease;
+        }
+        .pronac-img:hover { transform: scale(1.02); }
+
+        /* GIF Lei Rouanet Aprovada — GRANDE e em destaque */
+        .pronac-gif-btn {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            line-height: 0;
+            display: block;
+        }
+        .pronac-gif {
+            display: block;
+            height: auto;
+            max-height: 280px;
+            width: auto;
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 14px;
+            border: 3px solid #FFD700;
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.45),
+                0 0 30px rgba(255, 215, 0, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+            animation: gifGlow 2.4s ease-in-out infinite;
+        }
+        @keyframes gifGlow {
+            0%, 100% {
+                filter: brightness(1) drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                filter: brightness(1.08) drop-shadow(0 0 14px rgba(255, 215, 0, 0.85));
+                box-shadow: 0 12px 36px rgba(0, 0, 0, 0.5), 0 0 45px rgba(255, 215, 0, 0.75);
+            }
+        }
+        .pronac-gif-btn:hover .pronac-gif {
+            transform: scale(1.05);
+            animation-play-state: paused;
+        }
+
+        /* Mobile: empilha e ajusta tamanho */
+        @media (max-width: 900px) {
+            .pronac-banners { gap: 1rem; }
+            .pronac-img, .pronac-gif { max-height: 220px; }
         }
         @media (max-width: 680px) {
-            .pronac-top {
-                padding: 8px;
-            }
-            .pronac-top img {
-                max-height: 180px;
-                border-radius: 8px;
-            }
+            .pronac-top { padding: 12px 10px; }
+            .pronac-banners { flex-direction: column; gap: 0.9rem; }
+            .pronac-img, .pronac-gif { max-height: 200px; border-radius: 10px; }
         }
 
         /* ===== BANNER ANIMADO ===== */
@@ -84,30 +136,18 @@
             border-bottom: 3px solid white;
             animation: softPulse 2s infinite;
         }
-
         @keyframes softPulse {
-            0% {
-                filter: brightness(1);
-            }
-            50% {
-                filter: brightness(1.05);
-            }
-            100% {
-                filter: brightness(1);
-            }
+            0% { filter: brightness(1); }
+            50% { filter: brightness(1.05); }
+            100% { filter: brightness(1); }
         }
-
-        .hero-banner i {
-            font-size: 1.6rem;
-            color: #b91c1c;
-        }
+        .hero-banner i { font-size: 1.6rem; color: #b91c1c; }
 
         .pimenta-wrapper {
             background: var(--gradient-red);
             text-align: center;
             padding: 0.9rem;
         }
-
         .btn-pimenta {
             display: inline-block;
             background: black;
@@ -121,7 +161,6 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
         }
-
         .btn-pimenta:hover {
             transform: scale(1.02);
             background: #1a1a1a;
@@ -138,7 +177,6 @@
             z-index: 1000;
             box-shadow: var(--shadow-sm);
         }
-
         .header-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -149,27 +187,39 @@
             flex-wrap: wrap;
             gap: 1rem;
         }
-
         .logo-area {
             display: flex;
             align-items: center;
             gap: 1rem;
+            flex-wrap: wrap;
         }
-
-        .logo-area img {
-            height: 55px;
+        .logo-img {
+            height: 60px;
             border-radius: 12px;
             background: white;
             padding: 4px;
+            flex-shrink: 0;
         }
-
         .logo-text h1 {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.6rem;
             font-weight: 800;
             color: white;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
-
+        .anos-badge {
+            background: var(--gradient-gold);
+            color: #1e2a32;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.65em;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 8px rgba(255, 153, 0, 0.4);
+        }
         .logo-text span {
             font-size: 0.85rem;
             color: #ffcc88;
@@ -191,34 +241,25 @@
             border: none;
             cursor: pointer;
         }
-
         .facebook-btn:hover {
             transform: scale(1.05);
             background: #1264d6;
             box-shadow: 0 6px 18px rgba(24, 119, 242, 0.4);
         }
+        .facebook-btn i { font-size: 1.2rem; }
 
-        .facebook-btn i {
-            font-size: 1.2rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.2rem;
-        }
-
+        .social-icons { display: flex; gap: 1.2rem; }
         .social-icons a {
             color: white;
             font-size: 1.5rem;
             transition: 0.2s;
         }
-
         .social-icons a:hover {
             color: var(--secondary);
             transform: translateY(-3px);
         }
 
-        /* ===== BANNER GORILA (ABAIXO DA CABEÇA) ===== */
+        /* ===== BANNER GORILA ===== */
         .gorila-banner-section {
             background: linear-gradient(145deg, #0f1a24, #1a2e3f);
             padding: 1.2rem 0;
@@ -227,13 +268,11 @@
             border-top: 2px solid rgba(255, 255, 255, 0.05);
             box-shadow: inset 0 4px 20px rgba(0, 0, 0, 0.3);
         }
-
         .gorila-banner-section .gorila-wrapper {
             max-width: 1400px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
-
         .gorila-banner-section a {
             display: inline-block;
             transition: transform 0.25s ease, box-shadow 0.3s ease;
@@ -243,16 +282,11 @@
             max-width: 100%;
             line-height: 0;
         }
-
         .gorila-banner-section a:hover {
             transform: scale(1.015);
             box-shadow: 0 14px 45px rgba(255, 153, 0, 0.25);
         }
-
-        .gorila-banner-section a:active {
-            transform: scale(0.97);
-        }
-
+        .gorila-banner-section a:active { transform: scale(0.97); }
         .gorila-banner-section img {
             width: 100%;
             max-width: 1100px;
@@ -264,12 +298,7 @@
             border: 2px solid rgba(255, 153, 0, 0.2);
             transition: border-color 0.3s ease;
         }
-
-        .gorila-banner-section a:hover img {
-            border-color: var(--secondary);
-        }
-
-        /* Badge de chamada sobre a imagem */
+        .gorila-banner-section a:hover img { border-color: var(--secondary); }
         .gorila-badge {
             display: inline-block;
             background: var(--secondary);
@@ -282,10 +311,7 @@
             letter-spacing: 0.5px;
             box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
         }
-
-        .gorila-badge i {
-            margin-right: 0.5rem;
-        }
+        .gorila-badge i { margin-right: 0.5rem; }
 
         /* ===== NAV ===== */
         .main-nav {
@@ -295,7 +321,6 @@
             top: 95px;
             z-index: 999;
         }
-
         .nav-container {
             max-width: 1400px;
             margin: 0 auto;
@@ -306,14 +331,12 @@
             align-items: center;
             gap: 1rem;
         }
-
         .nav-links {
             display: flex;
             gap: 1.5rem;
             list-style: none;
             flex-wrap: wrap;
         }
-
         .nav-links a {
             color: #1e2a32;
             font-weight: 700;
@@ -323,24 +346,14 @@
             gap: 6px;
             font-size: 0.95rem;
         }
-
-        .nav-links a:hover {
-            color: white;
-        }
-
+        .nav-links a:hover { color: white; }
         .search-box {
             display: flex;
             background: white;
             border-radius: 40px;
             overflow: hidden;
         }
-
-        .search-box input {
-            border: none;
-            padding: 0.5rem 1rem;
-            width: 220px;
-        }
-
+        .search-box input { border: none; padding: 0.5rem 1rem; width: 220px; }
         .search-box button {
             background: var(--primary);
             color: white;
@@ -358,7 +371,6 @@
             background: var(--dark);
             padding: 1.2rem 1rem;
         }
-
         .top-btn {
             background: linear-gradient(145deg, #ff9900, #cc7a00);
             padding: 0.7rem 1.6rem;
@@ -371,31 +383,13 @@
             gap: 8px;
             transition: 0.2s;
         }
-
-        .top-btn.perfumaria {
-            background: linear-gradient(145deg, #ff6b9c, #d8436e);
-        }
-        .top-btn.advogados {
-            background: linear-gradient(145deg, #4a90e2, #2a5caa);
-        }
-        .top-btn.casa-irmaos {
-            background: linear-gradient(145deg, #34c759, #2aa44f);
-        }
-        .top-btn.shekinah {
-            background: linear-gradient(145deg, #9b59b6, #8e44ad);
-        }
-        /* novos botões */
-        .top-btn.valesom {
-            background: linear-gradient(145deg, #e67e22, #d35400);
-        }
-        .top-btn.casa-bateria {
-            background: linear-gradient(145deg, #2ecc71, #1e8449);
-        }
-
-        .top-btn:hover {
-            transform: translateY(-3px);
-            filter: brightness(1.05);
-        }
+        .top-btn.perfumaria { background: linear-gradient(145deg, #ff6b9c, #d8436e); }
+        .top-btn.advogados { background: linear-gradient(145deg, #4a90e2, #2a5caa); }
+        .top-btn.casa-irmaos { background: linear-gradient(145deg, #34c759, #2aa44f); }
+        .top-btn.shekinah { background: linear-gradient(145deg, #9b59b6, #8e44ad); }
+        .top-btn.valesom { background: linear-gradient(145deg, #e67e22, #d35400); }
+        .top-btn.casa-bateria { background: linear-gradient(145deg, #2ecc71, #1e8449); }
+        .top-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
 
         /* ===== MAIN GRID ===== */
         .main-grid {
@@ -415,7 +409,6 @@
             box-shadow: var(--shadow-sm);
             height: fit-content;
         }
-
         .sidebar-menu h3 {
             font-family: 'Montserrat', sans-serif;
             border-left: 5px solid var(--secondary);
@@ -423,7 +416,6 @@
             margin-bottom: 1.5rem;
             color: var(--primary);
         }
-
         .side-link {
             display: flex;
             align-items: center;
@@ -437,19 +429,13 @@
             font-weight: 600;
             transition: 0.2s;
         }
-
-        .side-link i {
-            width: 24px;
-            color: var(--secondary);
-        }
+        .side-link i { width: 24px; color: var(--secondary); }
         .side-link:hover {
             background: var(--secondary);
             color: white;
             transform: translateX(5px);
         }
-        .side-link:hover i {
-            color: white;
-        }
+        .side-link:hover i { color: white; }
 
         /* ===== CONTENT ===== */
         .content-area {
@@ -457,44 +443,29 @@
             flex-direction: column;
             gap: 2rem;
         }
-
         .featured-movie {
             background: white;
             border-radius: 28px;
             overflow: hidden;
             box-shadow: var(--shadow-md);
         }
-
         .movie-header {
             background: var(--primary);
             padding: 1rem 1.8rem;
             color: white;
         }
-
         .movie-header h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.6rem;
         }
-
-        .video-responsive {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
-
+        .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-responsive iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
-
-        .movie-info {
-            padding: 1.5rem;
-            background: #fef9e6;
-        }
+        .movie-info { padding: 1.5rem; background: #fef9e6; }
 
         .section-card {
             background: white;
@@ -502,7 +473,6 @@
             padding: 1.8rem;
             box-shadow: var(--shadow-sm);
         }
-
         .section-title {
             font-family: 'Montserrat', sans-serif;
             font-size: 1.8rem;
@@ -511,13 +481,11 @@
             display: inline-block;
             padding-bottom: 6px;
         }
-
         .news-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
         }
-
         .news-card {
             background: white;
             border-radius: 20px;
@@ -525,31 +493,16 @@
             box-shadow: var(--shadow-sm);
             transition: 0.2s;
         }
-
-        .news-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-        .news-card img {
-            width: 100%;
-            height: 170px;
-            object-fit: cover;
-        }
-        .news-content {
-            padding: 1rem;
-        }
+        .news-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+        .news-card img { width: 100%; height: 170px; object-fit: cover; }
+        .news-content { padding: 1rem; }
 
         .video-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
-        .video-item {
-            background: #f9f9ff;
-            border-radius: 20px;
-            overflow: hidden;
-        }
+        .video-item { background: #f9f9ff; border-radius: 20px; overflow: hidden; }
 
         .video-destaque-card {
             background: white;
@@ -566,17 +519,11 @@
             font-family: 'Montserrat', sans-serif;
             font-size: 1.5rem;
         }
-        .video-destaque-card .video-responsive {
-            position: relative;
-            padding-bottom: 56.25%;
-            height: 0;
-        }
+        .video-destaque-card .video-responsive { position: relative; padding-bottom: 56.25%; height: 0; }
         .video-destaque-card .video-responsive iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: none;
         }
 
@@ -625,10 +572,7 @@
             border-top: 1px solid #333;
             padding-top: 1.5rem;
         }
-        .footer-github i {
-            color: var(--secondary);
-            margin-right: 6px;
-        }
+        .footer-github i { color: var(--secondary); margin-right: 6px; }
         .fixed-right,
         .fixed-left {
             position: fixed;
@@ -642,23 +586,15 @@
             box-shadow: var(--shadow-md);
             z-index: 999;
         }
-        .fixed-right {
-            right: 20px;
-        }
-        .fixed-left {
-            left: 20px;
-            background: var(--accent);
-            color: white;
-        }
+        .fixed-right { right: 20px; }
+        .fixed-left { left: 20px; background: var(--accent); color: white; }
 
         /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.85);
             z-index: 9999;
             justify-content: center;
@@ -666,17 +602,8 @@
             padding: 2rem;
             animation: fadeIn 0.3s ease;
         }
-        .modal-overlay.active {
-            display: flex;
-        }
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
+        .modal-overlay.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         .modal-content {
             background: #1a1a2e;
             border-radius: 30px;
@@ -688,8 +615,7 @@
         }
         .modal-close {
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 10px; right: 20px;
             color: white;
             font-size: 2.5rem;
             font-weight: bold;
@@ -699,10 +625,7 @@
             border: none;
             line-height: 1;
         }
-        .modal-close:hover {
-            color: #ff9900;
-            transform: rotate(90deg);
-        }
+        .modal-close:hover { color: #ff9900; transform: rotate(90deg); }
         .modal-images {
             display: flex;
             flex-wrap: wrap;
@@ -726,72 +649,68 @@
             font-size: 1.5rem;
             margin-bottom: 0.5rem;
         }
-        .modal-title i {
-            color: #1877f2;
-            margin-right: 10px;
-        }
+        .modal-title i { color: #1877f2; margin-right: 10px; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            .sidebar-menu {
-                display: none;
-            }
-            .facebook-btn {
-                font-size: 0.9rem;
-                padding: 0.4rem 1rem;
-            }
+            .main-grid { grid-template-columns: 1fr; }
+            .sidebar-menu { display: none; }
+            .facebook-btn { font-size: 0.9rem; padding: 0.4rem 1rem; }
         }
 
         @media (max-width: 680px) {
-            .header-container {
-                flex-direction: column;
-                text-align: center;
-            }
-            .nav-container {
-                flex-direction: column;
-            }
-            .search-box {
-                width: 100%;
-            }
-            .facebook-btn {
-                order: 3;
-            }
-            .modal-content {
-                padding: 1rem;
-            }
-            .modal-images img {
-                max-height: 40vh;
-            }
-            .gorila-banner-section img {
-                border-radius: 12px;
-            }
-            .gorila-banner-section {
-                padding: 0.8rem 0;
-            }
-            .gorila-badge {
-                font-size: 0.75rem;
-                padding: 0.3rem 1.2rem;
-            }
+            .header-container { flex-direction: column; text-align: center; }
+            .logo-area { justify-content: center; }
+            .logo-img { height: 50px; }
+            .logo-text h1 { font-size: 1.25rem; justify-content: center; }
+            .nav-container { flex-direction: column; }
+            .search-box { width: 100%; }
+            .facebook-btn { order: 3; }
+            .modal-content { padding: 1rem; }
+            .modal-images img { max-height: 40vh; }
+            .gorila-banner-section img { border-radius: 12px; }
+            .gorila-banner-section { padding: 0.8rem 0; }
+            .gorila-badge { font-size: 0.75rem; padding: 0.3rem 1.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <!-- ====== IMAGEM PRONAC / LEI ROUANET NO TOPO DO SITE ====== -->
-    <section class="pronac-top" aria-label="Projeto aprovado pela Lei Rouanet">
-        <img
-            src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/PRONAC1.png"
-            alt="TVVALENAREDE — projeto cultural aprovado pela Lei Rouanet, PRONAC"
-            fetchpriority="high"
-        />
+    <!-- ====== TOPO: BANNER PRONAC + GIF LEI ROUANET LADO A LADO ====== -->
+    <section class="pronac-top" aria-label="Projetos aprovados pela Lei Rouanet">
+        <div class="pronac-banners">
+
+            <!-- Imagem estática PRONAC -->
+            <img
+                src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/PRONAC1.png"
+                alt="TVVALENAREDE — projeto cultural aprovado pela Lei Rouanet, PRONAC"
+                class="pronac-img"
+                fetchpriority="high"
+            />
+
+            <!-- GIF animado Lei Rouanet Aprovada — grande e em destaque -->
+            <button
+                class="pronac-gif-btn"
+                id="openGifModal"
+                type="button"
+                title="Lei Rouanet Aprovada — clique para ver os contratos"
+                aria-label="Lei Rouanet Aprovada — TVVALENAREDE"
+            >
+                <img
+                    src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/rouanet-aprovada-tvvalenarede.gif"
+                    alt="Lei Rouanet Aprovada — TVVALENAREDE 25 Anos"
+                    class="pronac-gif"
+                    loading="eager"
+                    fetchpriority="high"
+                />
+            </button>
+
+        </div>
     </section>
 
     <!-- ====== BANNER E CABEÇALHO ====== -->
     <div class="hero-banner">
-        <i class="fas fa-film"></i> TVVALENAREDE AGORA PRODUZ FILMES | "SEGREDO INVISÍVEL" EM DESTAQUE <i class="fas fa-ticket-alt"></i>
+        <i class="fas fa-film"></i> TVVALENAREDE 25 ANOS — AGORA PRODUZ FILMES | "SEGREDO INVISÍVEL" EM DESTAQUE <i class="fas fa-ticket-alt"></i>
     </div>
     <div class="pimenta-wrapper">
         <a href="https://tvvalenarede.github.io/tv1/" class="btn-pimenta"><i class="fas fa-eye"></i> ASSISTIR TEORIA DO ABSURDO</a>
@@ -801,10 +720,14 @@
     <header class="main-header">
         <div class="header-container">
             <div class="logo-area">
-                <img src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png" alt="Logo TVVALENAREDE" />
+                <img
+                    src="https://github.com/tvvalenarede/bonani3/raw/main/logocerto2025.png"
+                    alt="Logo TVVALENAREDE"
+                    class="logo-img"
+                />
                 <div class="logo-text">
-                    <h1>TVVALENAREDE-LEI ROUANET APROVADA</h1>
-                    <span>WhatsApp: (12) 99769-0407 | Notícias, Filmes e Entretenimento</span>
+                    <h1>TVVALENAREDE <span class="anos-badge">25 ANOS</span></h1>
+                    <span>Lei Rouanet Aprovada | WhatsApp: (12) 99769-0407</span>
                 </div>
             </div>
 
@@ -821,14 +744,14 @@
         </div>
     </header>
 
-    <!-- ====== BANNER GORILA – ABAIXO DA CABEÇA DO SITE ====== -->
+    <!-- ====== BANNER GORILA ====== -->
     <section class="gorila-banner-section">
         <div class="gorila-wrapper">
             <a href="https://www.youtube.com/shorts/YWi1bgrwbHk" target="_blank" rel="noopener noreferrer" title="Assistir no YouTube">
                 <img
-                src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/GORILACARTAZSITE.fw.png"
-                alt="Gorila Carta Z Site - Clique para assistir"
-                loading="lazy"
+                    src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/GORILACARTAZSITE.fw.png"
+                    alt="Gorila Carta Z Site - Clique para assistir"
+                    loading="lazy"
                 />
             </a>
             <div class="gorila-badge">
@@ -855,20 +778,18 @@
         </div>
     </nav>
 
-    <!-- ====== BOTÕES PARCEIROS (COM OS NOVOS BOTÕES VALESOM E CASA DA BATERIA) ====== -->
+    <!-- ====== BOTÕES PARCEIROS ====== -->
     <div class="top-buttons-bar">
         <a href="https://tvvalenarede.github.io/tv1/" class="top-btn perfumaria"><i class="fas fa-spa"></i> BAR DO OSMAR</a>
         <a href="https://tvvalenarede.webnode.page/" class="top-btn advogados"><i class="fas fa-gavel"></i> J.E.C.S Advogados</a>
         <a href="https://casa3-irmaos.webnode.page/" class="top-btn casa-irmaos"><i class="fas fa-home"></i> Casa 3 Irmãos</a>
         <a href="https://tvvalenarede.github.io/jogos/" class="top-btn shekinah"><i class="fas fa-bolt"></i> Shekinah Energéticos</a>
-        <!-- NOVOS BOTÕES NÃO FLUTUANTES -->
         <a href="https://www.instagram.com/centroauditivovalesom/" class="top-btn valesom"><i class="fas fa-music"></i> VALESOM</a>
         <a href="#" class="top-btn casa-bateria"><i class="fas fa-drum"></i> CASA DA BATERIA</a>
     </div>
 
     <!-- ====== GRID PRINCIPAL ====== -->
     <div class="main-grid">
-
         <!-- SIDEBAR -->
         <aside class="sidebar-menu">
             <h3><i class="fas fa-bars"></i> MENU TVVALENAREDE</h3>
@@ -946,7 +867,7 @@
                 </div>
             </div>
 
-            <!-- VÍDEOS (FILMES E PRODUÇÕES) -->
+            <!-- VÍDEOS -->
             <div class="section-card" id="videos">
                 <h3 class="section-title"><i class="fas fa-film"></i> FILMES PRODUZIDOS PELA TVVALENAREDE</h3>
                 <div class="video-grid">
@@ -965,7 +886,7 @@
                 </div>
             </div>
 
-            <!-- DESTAQUE ESPECIAL -->
+            <!-- DESTAQUE -->
             <div class="video-destaque-card" id="destaque">
                 <div class="video-header">
                     <h2><i class="fas fa-play-circle"></i> TVVALENAREDE – DESTAQUE ESPECIAL</h2>
@@ -988,7 +909,7 @@
                 <a href="https://serginhos-centro-automotivo-de-taubate.webnode.page/" class="social-card">🚗 SERGINHO PNEUS</a>
             </div>
 
-            <!-- FORMULÁRIO DE CONTATO -->
+            <!-- FORMULÁRIO -->
             <form class="contact-form" id="contactForm" action="https://formsubmit.co/tvrbrazil@gmail.com" method="POST">
                 <h3><i class="fas fa-envelope-open-text"></i> Fale Conosco</h3>
                 <input type="text" name="Nome" placeholder="Seu nome" required style="width:100%; margin:8px 0; padding:12px; border-radius:30px; border:none;" />
@@ -1005,7 +926,7 @@
         <div class="footer-grid">
             <div>
                 <h4>TVVALENAREDE</h4>
-                <p>20 anos levando informação e entretenimento. Agora produzindo filmes.</p>
+                <p>25 anos levando informação e entretenimento. Agora produzindo filmes.</p>
             </div>
             <div>
                 <h4>Parceiros</h4>
@@ -1052,6 +973,7 @@
     <script>
         // ========== MODAL FACEBOOK ==========
         const openBtn = document.getElementById('openFacebookModal');
+        const openGifBtn = document.getElementById('openGifModal');
         const modal = document.getElementById('facebookModal');
         const closeBtn = document.getElementById('closeModal');
 
@@ -1059,13 +981,13 @@
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
-
         function closeModalFn() {
             modal.classList.remove('active');
             document.body.style.overflow = '';
         }
 
         openBtn.addEventListener('click', openModal);
+        if (openGifBtn) openGifBtn.addEventListener('click', openModal);
         closeBtn.addEventListener('click', closeModalFn);
         modal.addEventListener('click', (e) => {
             if (e.target === modal) closeModalFn();

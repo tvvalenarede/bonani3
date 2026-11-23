@@ -24,6 +24,7 @@
             --gradient-gold: linear-gradient(135deg, #FFD700, #FF8C00);
             --gradient-red: linear-gradient(135deg, #dc2626, #b91c1c);
             --gradient-cenourao: linear-gradient(135deg, #ff8c00, #e65100);
+            --gradient-cadastro: linear-gradient(135deg, #34c759, #1e8449);
         }
 
         body {
@@ -661,21 +662,37 @@
             padding-top: 1.5rem;
         }
         .footer-github i { color: var(--secondary); margin-right: 6px; }
+
+        /* ===== BOTÕES FLUTUANTES ===== */
         .fixed-right,
         .fixed-left {
             position: fixed;
             bottom: 25px;
             padding: 0.8rem 1.2rem;
             border-radius: 50px;
-            background: var(--secondary);
-            color: black;
             font-weight: bold;
             text-decoration: none;
             box-shadow: var(--shadow-md);
             z-index: 999;
+            transition: transform 0.2s ease, filter 0.2s ease;
         }
-        .fixed-right { right: 20px; background: linear-gradient(145deg, #f39c12, #d35400); color: #fff; border: 2px solid #FFD700; }
-        .fixed-left { left: 20px; background: var(--accent); color: white; }
+        .fixed-right {
+            right: 20px;
+            background: linear-gradient(145deg, #f39c12, #d35400);
+            color: #fff;
+            border: 2px solid #FFD700;
+        }
+        .fixed-left {
+            left: 20px;
+            background: var(--gradient-cadastro);
+            color: #fff;
+            border: 2px solid #a7f3b8;
+        }
+        .fixed-right:hover,
+        .fixed-left:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.08);
+        }
 
         /* ===== SEÇÃO CADASTRO (ABAIXO DO SITE) ===== */
         .cadastro-section {
@@ -807,6 +824,7 @@
             .gorila-banner-section img { border-radius: 12px; }
             .gorila-banner-section { padding: 0.8rem 0; }
             .gorila-badge { font-size: 0.75rem; padding: 0.3rem 1.2rem; }
+            .fixed-right, .fixed-left { font-size: 0.8rem; padding: 0.6rem 0.9rem; }
         }
     </style>
 </head>
@@ -1126,8 +1144,15 @@
     </section>
 
     <!-- ====== BOTÕES FLUTUANTES ====== -->
-    <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="fixed-right"><i class="fas fa-shopping-cart"></i> Supermercado Cenourão</a>
-    <a href="https://tvvalenarede.webnode.page/" class="fixed-left"><i class="fas fa-gavel"></i> J.E.C.S</a>
+    <!-- Botão flutuante direito: Supermercado Cenourão -->
+    <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="fixed-right">
+        <i class="fas fa-shopping-cart"></i> Supermercado Cenourão
+    </a>
+
+    <!-- Botão flutuante esquerdo: CADASTRO (antes era JECS) -->
+    <a href="https://tvvalenarede.github.io/cadastro/" class="fixed-left" title="Cadastro TVVALENAREDE">
+        <i class="fas fa-user-plus"></i> CADASTRO
+    </a>
 
     <!-- ====== MODAL FACEBOOK ====== -->
     <div class="modal-overlay" id="facebookModal">

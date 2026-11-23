@@ -1,18 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
-    <title>TVVALENAREDE 25 ANOS | Notícias, Filmes e Entretenimento</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600;700&display=swap" />
-    <style>
-        /* ===== RESET & BASE ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --primary: #0a2b3e;
+    <title>TVVALENAREDE 25 ANa
             --secondary: #ff9900;
             --accent: #00a8e8;
             --dark: #071a24;
@@ -142,7 +133,7 @@
         }
         .hero-banner i { font-size: 1.6rem; color: #b91c1c; }
 
-        /* ===== NOVO BLOCO: GIF SUPERMERCADO CENOURÃO ===== */
+        /* ===== GIF SUPERMERCADO CENOURÃO ===== */
         .cenourao-gif-section {
             background: linear-gradient(135deg, #e65100, #ff8c00, #e65100);
             background-size: 200% 200%;
@@ -229,7 +220,7 @@
             .cenourao-tagline { font-size: 0.9rem; padding: 0.4rem 1rem; }
         }
 
-        /* ===== LETREIRO PRETO (SUPERMERCADO CENOURÃO) ===== */
+        /* ===== LETREIRO PRETO ===== */
         .pimenta-wrapper {
             background: var(--gradient-cenourao);
             text-align: center;
@@ -678,6 +669,54 @@
         .fixed-right { right: 20px; background: linear-gradient(145deg, #f39c12, #d35400); color: #fff; border: 2px solid #FFD700; }
         .fixed-left { left: 20px; background: var(--accent); color: white; }
 
+        /* ===== SEÇÃO CADASTRO (ABAIXO DO SITE) ===== */
+        .cadastro-section {
+            background: linear-gradient(135deg, #0a2b3e, #071a24);
+            text-align: center;
+            padding: 2.2rem 1rem 2.5rem;
+            border-top: 3px solid var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+        }
+        .cadastro-section h2 {
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1.2rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+        }
+        .btn-cadastro {
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--gradient-gold);
+            color: #1e2a32;
+            padding: 0.9rem 2.8rem;
+            border-radius: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.35rem;
+            letter-spacing: 3px;
+            text-decoration: none;
+            box-shadow: 0 8px 22px rgba(255, 153, 0, 0.4);
+            transition: all 0.2s ease;
+            border: 2px solid #FFD700;
+        }
+        .btn-cadastro:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 153, 0, 0.6);
+            filter: brightness(1.06);
+        }
+        .btn-cadastro i { font-size: 1.2rem; }
+
+        @media (max-width: 680px) {
+            .cadastro-section { padding: 1.6rem 0.8rem 2rem; }
+            .btn-cadastro { font-size: 1.1rem; padding: 0.8rem 2rem; letter-spacing: 2px; }
+            .cadastro-section h2 { font-size: 0.95rem; }
+        }
+
         /* ===== MODAL ===== */
         .modal-overlay {
             display: none;
@@ -1061,10 +1100,22 @@
             </div>
         </div>
         <div class="footer-github">
-            <i class="fab fa-github"></i> Hospedado  · <a href="https://github.com/tvvalenarede" target="_blank" style="color:#ff9900; text-decoration:none;">tvvalenarede</a>
+            <i class="fab fa-github"></i> Hospedado no GitHub · <a href="https://github.com/tvvalenarede" target="_blank" style="color:#ff9900; text-decoration:none;">tvvalenarede</a>
         </div>
         <div style="text-align:center; margin-top:0.5rem; font-size:0.8rem;">© 2026 TVVALENAREDE.COM.BR - Todos os direitos reservados</div>
     </footer>
+
+    <!-- ====== SEÇÃO CADASTRO (ABAIXO DO SITE) ====== -->
+    <section class="cadastro-section" aria-label="Cadastro TVVALENAREDE">
+        <h2>Faça parte da TVVALENAREDE</h2>
+        <a
+            href="https://tvvalenarede.github.io/cadastro/"
+            class="btn-cadastro"
+            title="Clique para se cadastrar"
+        >
+            <i class="fas fa-user-plus"></i> CADASTRO
+        </a>
+    </section>
 
     <!-- ====== BOTÕES FLUTUANTES ====== -->
     <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="fixed-right"><i class="fas fa-shopping-cart"></i> Supermercado Cenourão</a>

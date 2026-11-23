@@ -54,7 +54,6 @@
             max-width: 1400px;
         }
 
-        /* Imagem PRONAC (estática) */
         .pronac-img {
             display: block;
             height: auto;
@@ -69,7 +68,6 @@
         }
         .pronac-img:hover { transform: scale(1.02); }
 
-        /* GIF Lei Rouanet Aprovada — GRANDE e em destaque */
         .pronac-gif-btn {
             background: transparent;
             border: none;
@@ -108,7 +106,6 @@
             animation-play-state: paused;
         }
 
-        /* Mobile: empilha e ajusta tamanho */
         @media (max-width: 900px) {
             .pronac-banners { gap: 1rem; }
             .pronac-img, .pronac-gif { max-height: 220px; }
@@ -386,7 +383,7 @@
         .top-btn.perfumaria { background: linear-gradient(145deg, #ff6b9c, #d8436e); }
         .top-btn.advogados { background: linear-gradient(145deg, #4a90e2, #2a5caa); }
         .top-btn.casa-irmaos { background: linear-gradient(145deg, #34c759, #2aa44f); }
-        .top-btn.shekinah { background: linear-gradient(145deg, #9b59b6, #8e44ad); }
+        .top-btn.cenourao { background: linear-gradient(145deg, #f39c12, #d35400); }
         .top-btn.valesom { background: linear-gradient(145deg, #e67e22, #d35400); }
         .top-btn.casa-bateria { background: linear-gradient(145deg, #2ecc71, #1e8449); }
         .top-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
@@ -586,7 +583,7 @@
             box-shadow: var(--shadow-md);
             z-index: 999;
         }
-        .fixed-right { right: 20px; }
+        .fixed-right { right: 20px; background: linear-gradient(145deg, #f39c12, #d35400); color: #fff; }
         .fixed-left { left: 20px; background: var(--accent); color: white; }
 
         /* ===== MODAL ===== */
@@ -680,7 +677,6 @@
     <section class="pronac-top" aria-label="Projetos aprovados pela Lei Rouanet">
         <div class="pronac-banners">
 
-            <!-- Imagem estática PRONAC -->
             <img
                 src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/PRONAC1.png"
                 alt="TVVALENAREDE — projeto cultural aprovado pela Lei Rouanet, PRONAC"
@@ -688,7 +684,6 @@
                 fetchpriority="high"
             />
 
-            <!-- GIF animado Lei Rouanet Aprovada — grande e em destaque -->
             <button
                 class="pronac-gif-btn"
                 id="openGifModal"
@@ -783,7 +778,7 @@
         <a href="https://tvvalenarede.github.io/tv1/" class="top-btn perfumaria"><i class="fas fa-spa"></i> BAR DO OSMAR</a>
         <a href="https://tvvalenarede.webnode.page/" class="top-btn advogados"><i class="fas fa-gavel"></i> J.E.C.S Advogados</a>
         <a href="https://casa3-irmaos.webnode.page/" class="top-btn casa-irmaos"><i class="fas fa-home"></i> Casa 3 Irmãos</a>
-        <a href="https://tvvalenarede.github.io/jogos/" class="top-btn shekinah"><i class="fas fa-bolt"></i> Shekinah Energéticos</a>
+        <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="top-btn cenourao"><i class="fas fa-shopping-cart"></i> Supermercado Cenourão</a>
         <a href="https://www.instagram.com/centroauditivovalesom/" class="top-btn valesom"><i class="fas fa-music"></i> VALESOM</a>
         <a href="#" class="top-btn casa-bateria"><i class="fas fa-drum"></i> CASA DA BATERIA</a>
     </div>
@@ -795,7 +790,7 @@
             <h3><i class="fas fa-bars"></i> MENU TVVALENAREDE</h3>
             <a href="https://tvvalenarede.github.io/redesocial1/" class="side-link"><i class="fas fa-futbol"></i> SITE DO MAICON JOGADOR</a>
             <a href="https://www.facebook.com/TVRBRAZIL" class="side-link"><i class="fas fa-tv"></i> TVVALENAREDE AO VIVO</a>
-            <a href="https://tvvalenarede.github.io/jogos/" class="side-link"><i class="fas fa-bolt"></i> Shekinah Energéticos</a>
+            <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="side-link"><i class="fas fa-shopping-cart"></i> Supermercado Cenourão</a>
             <a href="https://casa3-irmaos.webnode.page" class="side-link"><i class="fas fa-home"></i> CASA 3 IRMÃOS</a>
             <a href="https://www.youtube.com/watch?v=z2j0Yzf8Myk&t=34s" class="side-link"><i class="fas fa-trophy"></i> PREMIAÇÃO ACEESP</a>
             <a href="https://made-center7.webnode.page" class="side-link"><i class="fas fa-futbol"></i> FUTEBOL</a>
@@ -934,7 +929,7 @@
                     <li>Bar do Osmar</li>
                     <li>J.E.C.S Advogados</li>
                     <li>Casa 3 Irmãos</li>
-                    <li>Shekinah Energéticos</li>
+                    <li>Supermercado Cenourão</li>
                     <li>VALESOM</li>
                     <li>CASA DA BATERIA</li>
                 </ul>
@@ -951,7 +946,7 @@
     </footer>
 
     <!-- ====== BOTÕES FLUTUANTES ====== -->
-    <a href="https://www.youtube.com/watch?v=F_JiRVhsgZ8&t=13s" class="fixed-right"><i class="fas fa-bolt"></i> PROGRAMA SHEKINAH</a>
+    <a href="https://tvvalenarede.github.io/supermercadocenourao/" class="fixed-right"><i class="fas fa-shopping-cart"></i> Supermercado Cenourão</a>
     <a href="https://tvvalenarede.webnode.page/" class="fixed-left"><i class="fas fa-gavel"></i> J.E.C.S</a>
 
     <!-- ====== MODAL FACEBOOK ====== -->
@@ -971,7 +966,6 @@
 
     <!-- ====== SCRIPTS ====== -->
     <script>
-        // ========== MODAL FACEBOOK ==========
         const openBtn = document.getElementById('openFacebookModal');
         const openGifBtn = document.getElementById('openGifModal');
         const modal = document.getElementById('facebookModal');
@@ -996,7 +990,6 @@
             if (e.key === 'Escape') closeModalFn();
         });
 
-        // ========== FORMULÁRIO ==========
         const form = document.getElementById('contactForm');
         if (form) {
             form.addEventListener('submit', (e) => {
@@ -1020,7 +1013,6 @@
             });
         }
 
-        // ========== BUSCA ==========
         const searchBtn = document.querySelector('.search-box button');
         if (searchBtn) {
             searchBtn.addEventListener('click', () => {

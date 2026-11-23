@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -23,6 +24,7 @@
             --shadow-hover: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
             --gradient-gold: linear-gradient(135deg, #FFD700, #FF8C00);
             --gradient-red: linear-gradient(135deg, #dc2626, #b91c1c);
+            --gradient-cenourao: linear-gradient(135deg, #ff8c00, #e65100);
         }
 
         body {
@@ -140,16 +142,104 @@
         }
         .hero-banner i { font-size: 1.6rem; color: #b91c1c; }
 
-        .pimenta-wrapper {
-            background: var(--gradient-red);
+        /* ===== NOVO BLOCO: GIF SUPERMERCADO CENOURÃO ===== */
+        .cenourao-gif-section {
+            background: linear-gradient(135deg, #e65100, #ff8c00, #e65100);
+            background-size: 200% 200%;
+            animation: gradientShift 6s ease infinite;
+            padding: 1.8rem 1rem;
             text-align: center;
-            padding: 0.9rem;
+            border-top: 4px solid #FFD700;
+            border-bottom: 4px solid #FFD700;
+            box-shadow: inset 0 0 60px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .cenourao-gif-link {
+            display: inline-block;
+            line-height: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.5),
+                0 0 45px rgba(255, 215, 0, 0.55);
+            border: 4px solid #FFD700;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: cenouraoPulse 2.6s ease-in-out infinite;
+            max-width: 100%;
+        }
+        @keyframes cenouraoPulse {
+            0%, 100% {
+                filter: brightness(1);
+                box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5), 0 0 35px rgba(255, 215, 0, 0.4);
+            }
+            50% {
+                filter: brightness(1.08);
+                box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6), 0 0 65px rgba(255, 215, 0, 0.9);
+            }
+        }
+        .cenourao-gif-link:hover {
+            transform: scale(1.03);
+            animation-play-state: paused;
+        }
+        .cenourao-gif-link:active { transform: scale(0.98); }
+
+        .cenourao-gif {
+            display: block;
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            border-radius: 16px;
+            background: #fff;
+        }
+
+        .cenourao-tagline {
+            margin-top: 1.1rem;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: 1px;
+            text-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 0.5rem 1.4rem;
+            border-radius: 60px;
+            border: 2px solid rgba(255, 215, 0, 0.6);
+        }
+        .cenourao-tagline i {
+            color: #FFD700;
+            animation: cenouraoBounce 1.4s ease-in-out infinite;
+        }
+        @keyframes cenouraoBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        @media (max-width: 680px) {
+            .cenourao-gif-section { padding: 1.2rem 0.6rem; }
+            .cenourao-gif-link { border-width: 3px; border-radius: 14px; }
+            .cenourao-tagline { font-size: 0.9rem; padding: 0.4rem 1rem; }
+        }
+
+        /* ===== LETREIRO PRETO (SUPERMERCADO CENOURÃO) ===== */
+        .pimenta-wrapper {
+            background: var(--gradient-cenourao);
+            text-align: center;
+            padding: 1rem 0.9rem;
         }
         .btn-pimenta {
             display: inline-block;
             background: black;
             color: #ffdd44;
-            padding: 0.7rem 2rem;
+            padding: 0.85rem 2.2rem;
             border-radius: 60px;
             font-weight: bold;
             font-size: 1.2rem;
@@ -157,13 +247,15 @@
             transition: all 0.2s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             letter-spacing: 1px;
+            border: 2px solid #FFD700;
         }
         .btn-pimenta:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
             background: #1a1a1a;
             color: #ffcc22;
-            box-shadow: 0 8px 18px black;
+            box-shadow: 0 8px 22px black, 0 0 25px rgba(255, 215, 0, 0.6);
         }
+        .btn-pimenta i { margin-right: 6px; }
 
         /* ===== HEADER ===== */
         .main-header {
@@ -383,7 +475,7 @@
         .top-btn.perfumaria { background: linear-gradient(145deg, #ff6b9c, #d8436e); }
         .top-btn.advogados { background: linear-gradient(145deg, #4a90e2, #2a5caa); }
         .top-btn.casa-irmaos { background: linear-gradient(145deg, #34c759, #2aa44f); }
-        .top-btn.cenourao { background: linear-gradient(145deg, #f39c12, #d35400); }
+        .top-btn.cenourao { background: linear-gradient(145deg, #f39c12, #d35400); border: 2px solid #FFD700; }
         .top-btn.valesom { background: linear-gradient(145deg, #e67e22, #d35400); }
         .top-btn.casa-bateria { background: linear-gradient(145deg, #2ecc71, #1e8449); }
         .top-btn:hover { transform: translateY(-3px); filter: brightness(1.05); }
@@ -583,7 +675,7 @@
             box-shadow: var(--shadow-md);
             z-index: 999;
         }
-        .fixed-right { right: 20px; background: linear-gradient(145deg, #f39c12, #d35400); color: #fff; }
+        .fixed-right { right: 20px; background: linear-gradient(145deg, #f39c12, #d35400); color: #fff; border: 2px solid #FFD700; }
         .fixed-left { left: 20px; background: var(--accent); color: white; }
 
         /* ===== MODAL ===== */
@@ -707,8 +799,37 @@
     <div class="hero-banner">
         <i class="fas fa-film"></i> TVVALENAREDE 25 ANOS — AGORA PRODUZ FILMES | "SEGREDO INVISÍVEL" EM DESTAQUE <i class="fas fa-ticket-alt"></i>
     </div>
+
+    <!-- ====== GIF SUPERMERCADO CENOURÃO (ACIMA DO LETREIRO) ====== -->
+    <section class="cenourao-gif-section" aria-label="Supermercado Cenourão — Compre Online">
+        <a
+            href="https://tvvalenarede.github.io/supermercadocenourao/"
+            class="cenourao-gif-link"
+            title="Supermercado Cenourão — Clique e compre online"
+            aria-label="Supermercado Cenourão — Compre Online"
+        >
+            <img
+                src="https://raw.githubusercontent.com/tvvalenarede/bonani3/main/cenourao-compre-online.gif"
+                alt="Supermercado Cenourão — Compre Online"
+                class="cenourao-gif"
+                loading="eager"
+                fetchpriority="high"
+            />
+        </a>
+        <div class="cenourao-tagline">
+            <i class="fas fa-shopping-cart"></i> SUPERMERCADO CENOURÃO — COMPRE ONLINE
+            <i class="fas fa-star"></i>
+        </div>
+    </section>
+
+    <!-- ====== LETREIRO PRETO — SUPERMERCADO CENOURÃO ====== -->
     <div class="pimenta-wrapper">
-        <a href="https://tvvalenarede.github.io/tv1/" class="btn-pimenta"><i class="fas fa-eye"></i> ASSISTIR TEORIA DO ABSURDO</a>
+        <a
+            href="https://tvvalenarede.github.io/supermercadocenourao/"
+            class="btn-pimenta"
+        >
+            <i class="fas fa-shopping-cart"></i> Compre aqui online no Supermercado Cenourão
+        </a>
     </div>
 
     <!-- ====== HEADER ====== -->
